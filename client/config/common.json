@@ -1,0 +1,8 @@
+{
+  "reactPresets": {
+    "renderDestinations": {
+      "application": "Anchor-Application",
+      "head": "Anchor-Head"
+    }
+  }
+}
