@@ -88,6 +88,12 @@ This document will (attempt) to capture how I created this project; capturing pr
 
 ## Webpack Configuration
 
+#### Mode
+The default mode for the webpack configuration, set using the environment:
+```js
+mode: process.env.ENVIRONMENT || 'development'
+```
+
 #### Entry Point
 The entry point for the project, i.e. the core React app:
 ```js
