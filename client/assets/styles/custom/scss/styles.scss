@@ -3,7 +3,7 @@
 @import "functions";
 @import "default-css";
 
-/** 
+/**
  * -----------------
  * General CSS
  * -----------------
@@ -30,7 +30,7 @@
             box-shadow: 0 0px 2px 0 rgba(74, 71, 71, 0.8), 0 0px 1px 1px rgba(241, 241, 241, 0.8);
         }
     }
-    
+
     .section-loader {
         background: $white;
     }
@@ -38,7 +38,7 @@
         color: $black;
     }
     a {
-        
+
         color: $black;
     }
     h2 {
@@ -96,10 +96,10 @@
     }
     .mh-project-gallery .grid-item figure figcaption a {
         color: $white;
-    }    
+    }
     .mh-project-gallery .grid-item figure figcaption .title {
         color: $white;
-    }    
+    }
     .mh-project-gallery .grid-item figure figcaption .sub-title{
         color: $white;
     }
@@ -133,14 +133,14 @@
         opacity: 0.8;
     }
     .mh-header .navbar-nav li.active a {
-        padding-right: 0;    
-        padding-left: 0;    
+        padding-right: 0;
+        padding-left: 0;
         border-color:  $black;
-    }    
+    }
     .mh-header.nav-3 .navbar-nav li.active a {
         border-color: transparent;
     }
-    
+
     .mh-footer {
         .form-control{
             @include box-shadow($color-shadows-contact-w-2x);
@@ -155,7 +155,7 @@
             &:focus {
                @include box-shadow($color-shadows-contact-w-2x);
             }
-        }    
+        }
     }
     .mh-footer-2 {
         .form-control {
@@ -174,28 +174,28 @@
             }
         }
     }
-    
+
     .mh-blog .mh-blog-item .blog-inner h2 a {
         color: $black-bg;
     }
-    
+
     .shadow-1 {
         box-shadow: 0px 10px 20px 4px #00000015;
-    }       
-    
+    }
+
     .mh-pricing .mh-pricing {
         box-shadow: 0px 10px 20px 4px #00000015;
-    }     
-    
-    
+    }
+
+
     .mh-blog .mh-blog-item {
         box-shadow: 0px 10px 20px 4px #00000015;
-    }    
-    
-    
+    }
+
+
     .mh-experince .mh-education-deatils .mh-education-item {
         box-shadow: 0px 10px 20px 4px #00000015;
-    }   
+    }
     .mh-work .mh-experience-deatils .mh-work-item {
         box-shadow: 0px 10px 20px 4px #00000015;
     }
@@ -277,7 +277,7 @@
         color: $white;
     }
     a {
-        
+
         color: $white;
     }
     h2 {
@@ -304,7 +304,7 @@
     span {
         color: $white;
     }
- 
+
     div {
         color: $white;
     }
@@ -358,7 +358,7 @@
     .mh-header.nav-3 .navbar-nav li.active a{
         border-color: transparent;
     }
-    
+
     .mh-footer {
         .form-control {
             @include box-shadow($color-shadows-contact-2x);
@@ -371,7 +371,7 @@
             &:focus {
                @include box-shadow($color-shadows-contact-2x);
             }
-        }    
+        }
     }
     .mh-footer-2 {
         .form-control {
@@ -390,7 +390,7 @@
             }
         }
     }
-    
+
     .mh-work .mh-experience-deatils .mh-work-item {
         -webkit-box-shadow: -1rem 0 3rem #000;
         box-shadow: -1rem 0 3rem #000;
@@ -402,7 +402,7 @@
     .mh-blog .mh-blog-item {
         -webkit-box-shadow: -1rem 0 3rem #000;
         box-shadow: -1rem 0 3rem #000;
-    }    
+    }
     .mh-footer-address .mh-address-footer-item {
         -webkit-box-shadow: -1rem 0 3rem #000;
         box-shadow: -1rem 0 3rem #000;
@@ -410,12 +410,12 @@
     .mh-experince .mh-education-deatils .mh-education-item {
          -webkit-box-shadow: -1rem 0 3rem #000;
         box-shadow: -1rem 0 3rem #000;
-    }    
+    }
     .mh-service .mh-service-item {
          -webkit-box-shadow: -1rem 0 3rem #000;
         box-shadow: -1rem 0 3rem #000;
     }
-    
+
     .mh-home {
         .hero-img {
             img {
@@ -464,7 +464,7 @@
 
 .mh-rtl {
     text-align: right;
-    .mh-work .mh-experience-deatils 
+    .mh-work .mh-experience-deatils
     .mh-work-item .work-responsibility
     li .fa, li .svg-inline--fa {
         margin-left: 10px;
@@ -486,7 +486,7 @@
 */
 
 /*---------------------------------------------------------------------*/
-/* Loader 
+/* Loader
 /*---------------------------------------------------------------------*/
 .section-loader{
     position: fixed;
@@ -587,12 +587,12 @@
                 font-size: 18px;
                 opacity: 1;
                 line-height: 30px;
-                
+
                 &.nav-link {
                     padding-left: 0;
                     padding-right: 0;
                 }
-                
+
                 &:hover {
                     color: $main-color;
                 }
@@ -676,10 +676,10 @@
                         }
                     }
                }
-               
+
            }
        }
-       
+
        .mh-about-tag {
             width: 60%;
             margin: 0 auto;
@@ -689,8 +689,8 @@
                 }
             }
        }
-       
-    } 
+
+    }
 }
 
 /*
@@ -835,7 +835,7 @@
 .mh-about {
     .mh-about-inner {
         padding-left: 50px;
-        
+
         h2 {
             margin-bottom: 20px;
             margin-top: 20px;
@@ -873,7 +873,7 @@
                 padding: 4px 10px;
                 border-radius: 4px;
                 font-size: smaller;
-                
+
                 &:hover {
                     background-color: transparent !important;
                 }
@@ -882,7 +882,7 @@
                     margin-right: 5px;
                 }
             }
-            
+
         }
     }
 }
@@ -909,7 +909,7 @@
 //Circle progress
 .mh-professional-skills {
     padding-left: 20%;
-    
+
     h3 {
         font-size: 30px;
         line-height: 40px;
@@ -968,8 +968,8 @@
 .mh-progress path:nth-child(2) {
   stroke: $main-color;
 }
- 
-// Line progress 
+
+// Line progress
 
 .candidatos {
     position:relative;
@@ -1060,7 +1060,7 @@
         font-weight: bold;
         margin-bottom: 60px;
     }
-    
+
     .mh-education-deatils {
         .mh-education-item {
             margin-bottom: 30px;
@@ -1188,7 +1188,7 @@
         li {
             display: inline-block;
             margin: 0 10px;
-            cursor: pointer; 
+            cursor: pointer;
             &:hover {
                 color: $main-color;
             }
@@ -1201,7 +1201,7 @@
 .mh-portfolio-modal {
     display: none;
     background: $dark-color;
-	
+
 }
 .mh-portfolio-modal-inner {
     max-height: 500px;
@@ -1252,7 +1252,7 @@
         &:hover {
             // @include box-shadow($color-shadows);
             @include transition(.3s);
-            
+
             .btn {
                 @include transition(.3s);
                 background-color: darken($main-color, 5%);
@@ -1368,7 +1368,7 @@
             &:hover {
                 background-color: rgba($white, 0.7);
                 > * {
-                   color: $main-color; 
+                   color: $main-color;
                 }
             }
             h3 {
@@ -1389,7 +1389,7 @@
     .each-video {
         padding-top: 30px;
         padding-bottom: 30px;
-        
+
         p {
             margin-top: 20px;
             padding: 0 160px;
@@ -1417,7 +1417,7 @@
     .each-quates {
         padding-top: 30px;
         padding-bottom: 30px;
-        
+
         p {
             margin-top: 20px;
         }
@@ -1443,7 +1443,7 @@
 .mh-video {
     .each-video {
         padding: 30px 0;
-        
+
         p {
             margin-top: 20px;
         }
@@ -1475,10 +1475,10 @@
                 margin: 60px 0;
             }
             img {
-               
+
             }
         }
-    }    
+    }
     &.mh-2-testimonial {
         .mh-client-item {
             p {
@@ -1486,7 +1486,7 @@
                 margin: 20px 0;
             }
             img {
-               
+
             }
         }
     }
@@ -1570,7 +1570,7 @@
         @include box-shadow($color-shadows-contact-2x);
         &:focus {
            @include box-shadow($color-shadows-contact-2x);
-            border-color: transparent;    
+            border-color: transparent;
         }
     }
     .contact-message {
@@ -1598,8 +1598,8 @@
         Label {
             font-weight: bold;
         }
-    }    
-    
+    }
+
 }
 
 /*
@@ -1632,7 +1632,7 @@
         border-radius: 4px;
         h4 {
             margin-bottom: 20px;
-            color: $main-color; 
+            color: $main-color;
         }
         address {
             margin-bottom: 0;
@@ -1665,7 +1665,7 @@
                 line-height: 50px;
                 font-size: 20px;
                 border-color: $main-color;
-            }            
+            }
         }
     }
 }
@@ -1687,7 +1687,7 @@
         margin-bottom: 10px;
     }
     p {
-        
+
     }
 }
 .nav-strict {
@@ -1958,7 +1958,7 @@
         background-color: $white;
     }
       /*==============
-                Overlay            
+                Overlay
       ================== */
     .overlay {
         position: fixed;
@@ -2060,7 +2060,7 @@
 .new {
     z-index: 99;
     .navbar-toggler.active {
-        
+
     }
     .nav-btn {
         .navbar-toggler {
@@ -2093,7 +2093,7 @@
         -moz-osx-font-smoothing: grayscale;
         overflow-y: none;
       }
-  
+
     .navbar-collapse.active {
         transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
         -o-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
@@ -2371,7 +2371,7 @@
                 @include transition(.5s);
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
-                
+
                 &:after {
                     content: '';
                     position: absolute;
@@ -2394,7 +2394,7 @@
                     z-index: -1;
                     opacity: 0;
                 }
-                
+
                 .fa, .svg-inline--fa {
                     margin: 0;
                     padding: 0;
@@ -2445,7 +2445,7 @@
                     -moz-osx-font-smoothing: grayscale;
                     opacity: 0;
                     letter-spacing: 0px;
-                } 
+                }
                 .sub-title {
                     margin: 0;
                     padding: 0;
@@ -2477,7 +2477,7 @@
                     text-indent: -99999px;
                 }
             }
-            
+
             &:hover {
                 -webkit-transition: all 0.4s ease-out;
                 -moz-transition: all 0.4s ease-out;
@@ -2540,7 +2540,7 @@
 }
 
 .home-ov-img {
-    background-image: url("/assets/images/header-bg-2.png");
+    background-image: url("~/assets/images/core/placeholder/header-bg-2.png");
     background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
@@ -2581,7 +2581,7 @@
                     margin: 0;
                     margin-top: 30px;
                     q {
-                        
+
                         font-style: italic;
                         &::before {
                             content: open-quote;
@@ -2653,7 +2653,7 @@
 .section-title {
     h3 {
         margin-bottom: 60px;
-    }   
+    }
     h2 {
         margin-bottom: 60px;
     }
@@ -2675,10 +2675,10 @@
             margin-top: 16px;
             &.purple-color {
                 color: #9774fa;
-            }            
+            }
             &.iron-color {
                 color: #ed7256;
-            }           
+            }
             &.sky-color {
                 color: #2796e2;
             }
@@ -2719,7 +2719,7 @@ BLOG Pagination
         li {
             margin: 0 10px;
             a {
-                
+
             }
         }
     }
@@ -2746,7 +2746,7 @@ BLOG Pagination
         border-top-left-radius: 50%;
         border-bottom-left-radius: 50%;
     }
-    
+
 }
 
 .mh-blog-sidebar {
@@ -2938,7 +2938,7 @@ BLOG Pagination
     span {
         color: $main-color;
     }
-    
+
 }
 .single-comment {
   overflow: hidden;
@@ -2987,7 +2987,7 @@ BLOG Pagination
     position: absolute;
     left: 50%;
     top: 50%;
-    background-image: url("/assets/images/slider/status.gif");
+    background-image: url("~/assets/images/core/placeholder/status.gif");
     background-repeat: no-repeat;
     background-position: center;
     margin: -100px 0 0 -100px;

@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import { submit_contact } from '~/utilities/contact';
+import { submitContact } from '~/utilities/contact';
 
+/**
+ * Contact component
+ *
+ * @component
+ * @description Contact component for contact form used in footer.
+ */
 class Contact extends Component {
   render() {
     return(
-      <Form onSubmit={submit_contact}>
+      <Form onSubmit={submitContact}>
         <Form.Row>
           <Form.Group as={Col} controlId="contactFirstName">
             <Form.Label>First Name</Form.Label>

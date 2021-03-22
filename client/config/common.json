@@ -4,5 +4,22 @@
       "application": "Anchor-Application",
       "head": "Anchor-Head"
     }
+  },
+  "siteSettings": {
+    "navigation": {
+      "defaultNavSections": {
+        "Home": {
+          "href": "#home",
+          "order": 0
+        },
+        "Contact": {
+          "href": "#contact",
+          "order": 10
+        }
+      }
+    },
+    "blog": {
+      "postsPerPage": 8
+    }
   }
 }

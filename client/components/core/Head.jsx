@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import jQuery from 'jquery';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '~/assets/scripts/plugins/owl.carousel.min.js';
 import '~/assets/scripts/plugins/validator.min.js';
@@ -20,10 +19,10 @@ import '~/assets/styles/custom/css/responsive.css';
 import '~/assets/styles/custom/css/green.css';
 
 /**
- * Header component using react-helmet
+ * Head component
  *
  * @component
- * @description Creates a header component using react-helmet
+ * @description Creates an HTML head component using react-helmet, loading in script and css dependencies.
  */
 class Head extends Component {
     render() {

@@ -6,11 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.0.1] - 2019-03-21
+## [1.1.0] - 2019-03-21
 ### Added
 - Client-side configuration
    - Config module
+   - Utilities package
+      - Contact module
 - Browser router over application
+- Footer component
+- Header component
+- Home page
+
+### Changed
+- Directory structure and modules
 
 ## [1.0.0] - 2019-03-19
 ### Added

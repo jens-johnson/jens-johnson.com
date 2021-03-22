@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationArrow, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { Contact, SocialIcons } from './misc'
+import { Contact, SocialIcons } from './misc';
 
+/**
+ * Footer component
+ *
+ * @component
+ * @description Footer component with contact form and site map.
+ */
 class Footer extends Component {
     render() {
         return(
@@ -62,7 +68,7 @@ class Footer extends Component {
                                 <div className="row">
                                     <div className="col-sm-4">
                                         <div className="text-left text-xs-center">
-                                            <p>All right reserved Jens Johnson @ 2020</p>
+                                            <p>All rights reserved Jens Johnson @ 2021</p>
                                         </div>
                                     </div>
                                     <div className="col-sm-4">

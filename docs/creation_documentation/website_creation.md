@@ -1,6 +1,6 @@
 # Website Creation Documentation
 
-_Last modified: 3-19-21_
+_Last modified: 3-21-21_
 
 ---
 ## Introduction
@@ -82,7 +82,7 @@ This document will (attempt) to capture how I created this project; capturing pr
            1. Creates an `<Application />` component
            2. Renders that component at our specified anchor point on the DOM.
         
-        - At this point, if we run `npm run start:dev`, we should see the following in our brower:
+        - At this point, if we run `npm run start:dev`, we should see the following in our browser:
         
            ![hello, world](assets/images/hello_world.png)
 

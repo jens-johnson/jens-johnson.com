@@ -1,16 +1,16 @@
-import * as map_config from './map_config.json';
+import MapConfig from './map_config.json';
 
 const loadMap = () => {
   const mapConfig = {
-    zoom: map_config.settings.zoom,
-    scrollwheel: false, 
+    zoom: MapConfig.settings.zoom,
+    scrollwheel: false,
     navigationControl: false,
-    center: map_config.settings.location,
-    styles: map_config.styles.light
+    center: MapConfig.settings.location,
+    styles: MapConfig.styles.light
   }
   const map = new google.maps.Map(document.getElementById('mh-map'), mapConfig);
   const marker = new google.maps.Marker({
-    position: map_config.settings.location,
+    position: MapConfig.settings.location,
     title: "Portland, Oregon"
   });
   marker.setMap(map);

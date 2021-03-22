@@ -19,7 +19,7 @@
 
 /**
  * -------------------
- *  Defult CSS 
+ *  Defult CSS
  * -------------------
  */
 html {
@@ -299,7 +299,7 @@ a {
   .btn-text-link a {
     margin-left: 10px; }
 
-/** 
+/**
  * -----------------
  * Social Icon Style
  * -----------------
@@ -464,7 +464,7 @@ ul {
   background-position: center center; }
 
 .home-2-img {
-  background-image: url("../../../images/base/blog/blog-header-img.jpg"); }
+  background-image: url("client/assets/images/pages/blog/blog-header-img.jpg"); }
 
 .featured-img-one {
   background-image: url("/assets/images/home-bg-img.jpg"); }
@@ -473,7 +473,7 @@ ul {
   background-image: url("/assets/images/extra-feature-bg.jpg"); }
 
 .map-image {
-  background-image: url("../../../images/map-color-overlay.png"); }
+  background-image: url("client/assets/images/core/map-color-overlay.png"); }
 
 .mt-30 {
   margin-top: 30px; }

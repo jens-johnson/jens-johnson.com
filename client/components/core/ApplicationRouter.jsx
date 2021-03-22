@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Footer from './Footer';
+import Home from '~/components/pages/home';
 import { SectionLoader } from './misc';
 
 /**
- * Application Router component for routing over the core application.
+ * Application Router component
  *
  * @component
- * @description Provides a router using react-router for client-side routing
+ * @description Provides a router using react-router for client-side routing over the application.
  */
 class ApplicationRouter extends Component {
     render() {
@@ -16,7 +17,7 @@ class ApplicationRouter extends Component {
                 <SectionLoader />
                 <Switch>
                     <Route exact path="/">
-                        <h1>Hello, World!</h1>
+                        <Home />
                     </Route>
                 </Switch>
                 <Footer />

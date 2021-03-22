@@ -2,32 +2,26 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faTwitter, faLinkedin, faReddit } from '@fortawesome/free-brands-svg-icons';
 
+/**
+ * Social Icons component
+ *
+ * @component
+ * @description Component that constructions a <ul /> with icons and links to social networks used throughout application.
+ * Dynamically adds extra classes/properties to wrapper element, passed in through props.
+ *
+ * == PROPS ==:
+ *  - extraClasses: String of extra classes to add to wrapper element (i.e. 'wow fadeInUp')
+ *  - extraProperties: Object of key/value mappings of extra properties to add to wrapper element
+ *    (i.e. { { 'wow-data-duration': '0.2s' }, { 'wow-data-delay': '0.1s' } })
+ */
 class SocialIcons extends Component {
-  /**
-   * Component Social Icons
-   * 
-   * @description: <ul /> component with icons and links to social networks used throughout application. Dynamically
-   * adds extra classes/properties to wrapper element, passed in through props.
-   * 
-   * == PROPS ==:
-   *  - extraClasses: String of extra classes to add to wrapper element (i.e. 'wow fadeInUp')
-   *  - extraProperties: Object of key/value mappings of extra properties to add to wrapper element
-   *    (i.e. { { 'wow-data-duration': '0.2s' }, { 'wow-data-delay': '0.1s' } }) 
-   * 
-   * == STATE ==:
-   *  - None
-   * 
-   * == RENDER TREE ==:
-   *   Dynamic (renders throughout application)
-  **/
-  
   constructor(props) {
     super(props);
   }
 
   render() {
     const properties = this.props.extraProperties || {};
-    Object.assign(properties, { 'className':  'social-icon' + (this.props.extraClasses ? " " + this.props.extraClasses : "")})
+    Object.assign(properties, { 'className':  'social-icon' + (this.props.extraClasses ? " " + this.props.extraClasses : "")});
     const wrapper = React.createElement('ul',
       properties,
       <li><a href="https://github.com/jens-johnson"><FontAwesomeIcon icon={faGithub} /></a></li>,

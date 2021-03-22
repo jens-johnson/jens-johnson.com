@@ -1,8 +1,8 @@
-//import 'core-js/stable';
+import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 //import { submitApiData } from '~/utilities/api';
 
-var submit_contact = async () => {
+const submitContact = async () => {
     /**
      * Function submit_contact
      *
@@ -39,5 +39,5 @@ var submit_contact = async () => {
 }
 
 export {
-    submit_contact
+    submitContact
 };
