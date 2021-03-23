@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.0] - 2019-03-22
+### Added
+- Added jsdocs support
+- Created `bin/www` run script
+
 ## [1.1.0] - 2019-03-21
 ### Added
 - Client-side configuration

@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+const http = require('http');
+const { server } = require('../server')
+
+//const logger = logging.getLogger('http-server');
+const httpServer = http.createServer(app);
+const port = server.get('port');
+
+httpServer.listen(port);
+httpServer.on('error', onError);
+httpServer.on('listening', onListening);
+
+/**
+ * Binding for HTTP Server onError event.
+ *
+ * @copyright Mike Coleman (https://github.com/mikegcoleman/todo/blob/710a68bea2497be4f2d8604704453ca955830802/bin/www#L39-L53)
+ * @param {SystemError} error
+ */
+function onError(error) {
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
+
+    switch (error.code) {
+        case 'EACCES':
+            /*logger.error("Failed to establish HTTP server. Binding requires elevated privileges.", {
+                error
+            });*/
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            /*logger.error("Failed to establish HTTP server. Binding is already in use.", {
+                error
+            });*/
+            process.exit(1);
+            break;
+        default:
+            /*logger.error("Failed to establish HTTP server.", {
+                error
+            });*/
+            throw error;
+    }
+}
+
+/**
+ * Binding for HTTP Server onListening event.
+ */
+function onListening() {
+    /*logger.info("HTTP Server listening.", {
+        port,
+        bind: typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port
+    });*/
+}

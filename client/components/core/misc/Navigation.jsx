@@ -39,7 +39,6 @@ class Navigation extends Component {
      * @method
      * @description: Class method for Navigation component. Dynamically constructs navigation items for navigation bar
      * using passed in 'sections' prop.
-     * @return
      **/
     constructNavSection() {
         let sections = navSettings.defaultNavSections;
