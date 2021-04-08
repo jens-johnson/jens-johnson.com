@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
 const http = require('http');
-const { server } = require('../server')
+const { server } = require('../server');
+const { getLogger } = require('../server/logging');
 
-//const logger = logging.getLogger('http-server');
-const httpServer = http.createServer(app);
+const { logger } = getLogger('http-server');
+
+const httpServer = http.createServer(server);
 const port = server.get('port');
 
 httpServer.listen(port);
@@ -24,21 +26,21 @@ function onError(error) {
 
     switch (error.code) {
         case 'EACCES':
-            /*logger.error("Failed to establish HTTP server. Binding requires elevated privileges.", {
+            logger.error("Failed to establish HTTP server. Binding requires elevated privileges.", {
                 error
-            });*/
+            });
             process.exit(1);
             break;
         case 'EADDRINUSE':
-            /*logger.error("Failed to establish HTTP server. Binding is already in use.", {
+            logger.error("Failed to establish HTTP server. Binding is already in use.", {
                 error
-            });*/
+            });
             process.exit(1);
             break;
         default:
-            /*logger.error("Failed to establish HTTP server.", {
+            logger.error("Failed to establish HTTP server.", {
                 error
-            });*/
+            });
             throw error;
     }
 }
@@ -47,8 +49,8 @@ function onError(error) {
  * Binding for HTTP Server onListening event.
  */
 function onListening() {
-    /*logger.info("HTTP Server listening.", {
+    logger.info("HTTP Server listening.", {
         port,
         bind: typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port
-    });*/
+    });
 }

@@ -3,4 +3,4 @@ logging:
   defaultConfig:
     loggingOptions:
       name: 'jens-johnson.com-logger'
-    logDestination: 1
+      destination: 1

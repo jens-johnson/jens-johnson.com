@@ -11,6 +11,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bin/www",
     "start:dev": "webpack serve",
     "build": "webpack",
     "build:dev": "webpack --mode development",
@@ -69,6 +70,8 @@
   },
   "dependencies": {
     "better-docs": "^2.3.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-pino-logger": "^6.0.0",

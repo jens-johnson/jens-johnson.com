@@ -7,12 +7,12 @@ const {
 const getLogger = (name) => {
     const {
         defaultConfig: {
-            loggingOptions, loggingDestination
+            loggingOptions
         }
     } = logging;
-    return pino({...name, loggingOptions}, loggingDestination);
+    return pino({...loggingOptions, name});
 }
 
 module.exports = {
-    logger: (name) => getLogger(name)
+    getLogger
 };
