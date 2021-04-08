@@ -1,0 +1,6 @@
+defaultPort: 8080
+logging:
+  defaultConfig:
+    loggingOptions:
+      name: 'jens-johnson.com-logger'
+      destination: 1

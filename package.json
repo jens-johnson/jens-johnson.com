@@ -11,11 +11,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bin/www",
     "start:dev": "webpack serve",
     "build": "webpack",
     "build:dev": "webpack --mode development",
     "scss:watch": "node-sass $npm_package_config_scss_root/scss -o $npm_package_config_scss_root/css --watch",
-    "scss:compile": "node-sass $npm_package_config_scss_root/scss -o $npm_package_config_scss_root/css"
+    "scss:compile": "node-sass $npm_package_config_scss_root/scss -o $npm_package_config_scss_root/css",
+    "docs": "jsdoc -c jsdoc.conf.json"
   },
   "repository": {
     "type": "git",
@@ -67,8 +69,16 @@
     "webpack-merge": "^5.7.3"
   },
   "dependencies": {
+    "better-docs": "^2.3.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-pino-logger": "^6.0.0",
+    "jsdoc": "^3.6.6",
     "lodash": "^4.17.21",
+    "nconf": "^0.11.2",
+    "nconf-yaml": "^1.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   }
