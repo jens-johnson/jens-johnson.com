@@ -7,8 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 
 ## [1.1.0] - 2019-04-08
-### Added
+### Changed
 - Modified server scripts
+- Server config
+- Client-side contact config
+### Added
+- Server modules:
+   - JSON schema validation
+   - DB
+      - Models
+   - Router
 
 ## [1.1.0] - 2019-03-22
 ### Added

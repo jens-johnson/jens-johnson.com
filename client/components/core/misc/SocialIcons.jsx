@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faTwitter, faLinkedin, faReddit } from '@fortawesome/free-brands-svg-icons';
+import Config from '~/config';
+
+const {
+  contactInformation: {
+    social
+  }
+} = Config;
 
 /**
  * Social Icons component
@@ -24,10 +31,10 @@ class SocialIcons extends Component {
     Object.assign(properties, { 'className':  'social-icon' + (this.props.extraClasses ? " " + this.props.extraClasses : "")});
     const wrapper = React.createElement('ul',
       properties,
-      <li><a href="https://github.com/jens-johnson"><FontAwesomeIcon icon={faGithub} /></a></li>,
-      <li><a href="https://www.linkedin.com/in/jens-johnson-295072127/"><FontAwesomeIcon icon={faLinkedin} /></a></li>,
-      <li><a href=""><FontAwesomeIcon icon={faTwitter} /></a></li>,
-      <li><a href=""><FontAwesomeIcon icon={faReddit} /></a></li>
+      <li><a href={social.github}><FontAwesomeIcon icon={faGithub} /></a></li>,
+      <li><a href={social.linkedIn}><FontAwesomeIcon icon={faLinkedin} /></a></li>,
+      <li><a href={social.twitter}><FontAwesomeIcon icon={faTwitter} /></a></li>,
+      <li><a href={social.reddit}><FontAwesomeIcon icon={faReddit} /></a></li>
     );
     return wrapper;
   }
