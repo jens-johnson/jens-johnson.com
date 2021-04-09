@@ -41,15 +41,34 @@ const persistContactRequest = (contactRequest) => {
     emailListOptIn
   } = contactRequest;
   if (emailListOptIn) {
-    db.models.EmailRecipient.find({email}, (err, matches) => {
-      if (err) {
-        logger.error('error retrieving email recipients for request', {
+    db.models.EmailRecipient.find({email}, (error, matches) => {
+      if (error) {
+        logger.error({
+          msg: 'error retrieving email recipients for request',
           contactRequest,
-          error: err
+          error
         });
-        throw new Error('failed to retrieve email recipients collection from Mongo');
       }
-      if (matches.length === 1) {
+      if (!matches || matches.length) {
+        db.models.EmailRecipient.create({
+          first,
+          last,
+          email,
+          dateAdded: new Date()
+        }).then(() => {
+          logger.info({
+            msg: 'created email recipient',
+            contactRequest
+          });
+        }).catch((error) => {
+          logger.error({
+            msg: 'error creating email recipient',
+            contactRequest,
+            error
+          });
+        });
+      }
+      else if (matches.length === 1) {
         db.models.EmailRecipient.updateOne({
           _id: matches[0]._id,
           first,
@@ -57,34 +76,17 @@ const persistContactRequest = (contactRequest) => {
           email
         }, (error, _) => {
           if (error) {
-            logger.error('failed to update contact request', {
+            logger.error({
+              msg: 'failed to update contact request',
               contactRequest,
               error
             });
-            throw new Error('failed to update email recipient collection');
           } else {
-            logger.info('updated contact request', {
+            logger.info({
+              msg: 'updated contact request',
               contactRequest
             });
           }
-        });
-      }
-      else if (!matches.length) {
-        db.models.EmailRecipient.create({
-          first,
-          last,
-          email,
-          dateAdded: new Date()
-        }).then(() => {
-          logger.info('created email recipient', {
-            contactRequest
-          });
-        }).catch((error) => {
-          logger.error('error creating email recipient', {
-            contactRequest,
-            error
-          });
-          throw new Error('failed to create email recipient in Mongo');
         });
       }
     });
@@ -96,15 +98,16 @@ const persistContactRequest = (contactRequest) => {
       email,
       message
     }).then(() => {
-      logger.info('created contact message', {
+      logger.info({
+        msg: 'created contact message',
         contactRequest
       });
     }).catch((error) => {
-      logger.error('error creating contact message', {
+      logger.error({
+        msg: 'error creating contact message',
         contactRequest,
         error
       });
-      throw new Error('failed to create contact message in Mongo');
     });
   }
 }

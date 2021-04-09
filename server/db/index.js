@@ -11,8 +11,13 @@ dbInstance.connection.on('open', () => {
   logger.info('DB Connection listening');
 });
 
+/**
+ * Establishes a connection over the mongoDB instance
+ *
+ * @param instance
+ * @return {Promise<boolean>}
+ */
 const connect = async (instance) => {
-  // TODO: Throw error on failure
   if (MONGOOSE_URI) {
     await instance.connect(MONGOOSE_URI, {
       useNewUrlParser: true,

@@ -6,7 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.1.0] - 2019-04-08
+## [1.2.0] - 2019-04-09
+### Added
+- Client-side contact submission
+- Client API module
+
+## [1.2.0] - 2019-04-08
 ### Changed
 - Modified server scripts
 - Server config
