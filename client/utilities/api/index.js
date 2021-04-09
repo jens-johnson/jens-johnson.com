@@ -9,8 +9,8 @@ const DEFAULT_HEADERS = {
 /**
  * Posts a request over the API.
  *
- * @param route
- * @param body
+ * @param {string} route
+ * @param {Object} body
  * @return {Promise<Response | void>}
  */
 const post = (route, body) => {
