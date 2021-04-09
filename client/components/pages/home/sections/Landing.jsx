@@ -2,8 +2,17 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faMapMarker } from '@fortawesome/free-solid-svg-icons';
 import Typewriter from 'typewriter-effect';
+import phone from 'phone';
+import Config from '~/config';
 import { SocialIcons } from '~/components/core/misc';
 import jensHeadshot from '~/assets/images/pages/home/jens-headshot.jpg';
+
+const {
+    contactInformation
+} = Config;
+
+const mailLink = `mailto:${contactInformation.email}`;
+const phoneLink = `callto:${phone(contactInformation.phone)}`;
 
 /**
  * Landing component
@@ -33,8 +42,8 @@ class Landing extends Component {
                                         }} />
                                     </h4>
                                     <ul>
-                                        <li className="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s"><FontAwesomeIcon icon={faEnvelope} /><a href="mailto:jens@jens-johnson.com">jens@jens-johnson.com</a></li>
-                                        <li className="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s"><FontAwesomeIcon icon={faPhone} /><a href="callto:+1(303)-918-7742">+1 (303)-918-7742</a></li>
+                                        <li className="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s"><FontAwesomeIcon icon={faEnvelope} /><a href={mailLink}>{contactInformation.email}</a></li>
+                                        <li className="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s"><FontAwesomeIcon icon={faPhone} /><a href={phoneLink}>{contactInformation.phone}</a></li>
                                         <li className="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s"><FontAwesomeIcon icon={faMapMarker} /><a href="#contact">Portland, Oregon</a></li>
                                     </ul>
                                     <SocialIcons extraClasses="wow fadeInUp" extraProperties={{ 'data-wow-duration': '0.8s',  'data-wow-delay': '0.7s' }} />

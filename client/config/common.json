@@ -21,5 +21,15 @@
     "blog": {
       "postsPerPage": 8
     }
+  },
+  "contactInformation": {
+    "email": "jens@jens-johnson.com",
+    "phone": "+1 (303)-918-7742",
+    "social": {
+      "linkedIn": "https://www.linkedin.com/in/jens-johnson-295072127/",
+      "twitter": "https://twitter.com/jensjohnson9",
+      "github": "https://github.com/jens-johnson",
+      "reddit": "https://www.reddit.com/user/jens-johnson"
+    }
   }
 }
