@@ -5,6 +5,11 @@
       "head": "Anchor-Head"
     }
   },
+  "api": {
+    "headers": {
+      "content-type": "application/json"
+    }
+  },
   "siteSettings": {
     "navigation": {
       "defaultNavSections": {
