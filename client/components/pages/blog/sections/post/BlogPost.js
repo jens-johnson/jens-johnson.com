@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import NoPostFound from './NoPostFound';
-import { retrieveBlogImage } from '~/utilities/image'
+import { retrieveBlogImage } from '~/utilities/image';
 import { retrievePost, retrieveContent } from '~/utilities/blog';
 import { normalize } from '~/utilities/date';
 import placeHolderImage from '~/assets/images/pages/blog/post-placeholder-image.jpg';

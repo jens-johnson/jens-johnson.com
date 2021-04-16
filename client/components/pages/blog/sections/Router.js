@@ -12,8 +12,7 @@ import NoPostsFound from './NoPostsFound';
  * @description Constructs router over blog page, either providing a post, default landing page, or 404 page depending on the window location.
  */
 function BlogRouter() {
-  let { path } = useRouteMatch();
-  console.log(path)
+  const { path } = useRouteMatch();
 
   return(
     <section className="mh-blog">
