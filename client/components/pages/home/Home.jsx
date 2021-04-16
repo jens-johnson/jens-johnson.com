@@ -31,7 +31,7 @@ class Home extends Component {
                 <Sections.Landing />
                 <Sections.About />
                 <Sections.Service />
-                {/*<Sections.Blog />*/}
+                <Sections.Blog />
                 <Sections.Experience />
             </>
         );

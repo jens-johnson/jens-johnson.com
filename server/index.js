@@ -17,6 +17,16 @@ const { logger } = serverLogger;
 const server = express();
 const port = normalizePort(process.env.PORT || defaultPort || 8080);
 
+const unless = (path, middleware) => {
+    return (req, res, next) => {
+        if (path === req.path) {
+            return next();
+        } else {
+            return middleware(req, res, next);
+        }
+    };
+};
+
 connect(dbInstance).then(() => {
     logger.info('Server listening to DB');
 }).catch((error) => {
@@ -35,6 +45,7 @@ server.use(bodyParser.json());
 server.use('/api', router);
 
 server.use(express.static(path.resolve(__dirname, '../dist')));
+server.get('*', (_, res) => res.sendFile(path.resolve(__dirname, '../dist/index.html')));
 
 module.exports = {
     server

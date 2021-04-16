@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Footer from './Footer';
 import Home from '~/components/pages/home';
+import Blog from '~/components/pages/blog';
 import { SectionLoader } from './misc';
 
 /**
@@ -17,7 +18,10 @@ class ApplicationRouter extends Component {
                 <SectionLoader />
                 <Switch>
                     <Route exact path="/">
-                        <Home />
+                      <Home />
+                    </Route>
+                    <Route path="/blog">
+                      <Blog />
                     </Route>
                 </Switch>
                 <Footer />

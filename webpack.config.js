@@ -10,6 +10,11 @@ const dotEnvWebpackPlugin = new DotEnvWebpackPlugin();
 module.exports = {
     mode: process.env.ENVIRONMENT || 'development',
     entry: path.resolve(__dirname, 'client/index.js'),
+    output: {
+        path: path.resolve(__dirname, './dist'),
+        publicPath: '/',
+        filename: 'main.bundle.js'
+    },
     resolve: {
         extensions: [
             '.js',
