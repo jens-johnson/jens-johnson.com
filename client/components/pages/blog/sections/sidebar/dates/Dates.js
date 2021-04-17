@@ -20,10 +20,9 @@ const Dates = () => {
       <h3>Dates</h3>
       {(() => {
         if (dates && dates.length) {
-          const dateElements = dates.map(date => <DateItem year={date._id.year} count={date.count} key={date._id.year} />);
           return(
             <ul>
-              { dateElements }
+              { dates.map(date => <DateItem year={date._id.year} count={date.count} key={date._id.year} />) }
             </ul>
           );
         }

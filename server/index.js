@@ -17,16 +17,6 @@ const { logger } = serverLogger;
 const server = express();
 const port = normalizePort(process.env.PORT || defaultPort || 8080);
 
-const unless = (path, middleware) => {
-    return (req, res, next) => {
-        if (path === req.path) {
-            return next();
-        } else {
-            return middleware(req, res, next);
-        }
-    };
-};
-
 connect(dbInstance).then(() => {
     logger.info('Server listening to DB');
 }).catch((error) => {

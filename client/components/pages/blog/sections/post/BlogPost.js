@@ -28,10 +28,6 @@ const BlogPost = () => {
   return(
     <div className="col-sm-12 col-md-12">
       {(() => {
-        console.log('Test',{
-          postData,
-          postContent
-        })
         if (postData && postContent) {
           const {
             authors: postAuthors,

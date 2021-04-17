@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, useRouteMatch, matchPath } from 'react-router-dom';
+import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import Landing from './Landing';
 import { BlogPost } from './post';
 import { SideBar } from './sidebar';

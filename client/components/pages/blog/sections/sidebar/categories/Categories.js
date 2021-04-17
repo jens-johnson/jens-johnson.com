@@ -20,14 +20,9 @@ const Categories = () => {
       <h3>Blog Categories</h3>
       {(() => {
         if (tags && tags.length) {
-          const tagElements = tags.map((tag) => {
-            return(
-              <Tag name={tag._id} count={tag.count} key={tag._id} />
-            );
-          });
           return(
             <ul>
-              { tagElements }
+              { tags.map(tag => <Tag name={tag._id} count={tag.count} key={tag._id} />) }
             </ul>
           );
         }

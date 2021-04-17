@@ -28,10 +28,9 @@ const Blog = () => {
           </div>
           {(() => {
             if (featuredPosts && featuredPosts.length) {
-              const postElements = featuredPosts.map((post, i) => <HomePostBlurb key={i} data={post} />);
               return(
                 <>
-                  { postElements }
+                  { featuredPosts.map((post, i) => <HomePostBlurb key={i} data={post} />) }
                 </>
               );
             }
