@@ -4,3 +4,6 @@ logging:
     loggingOptions:
       name: 'jens-johnson.com-logger'
       destination: 1
+blog:
+  maxTagsShown: 20
+  maxFeaturedPostsShown: 3

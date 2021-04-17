@@ -36,5 +36,11 @@
       "github": "https://github.com/jens-johnson",
       "reddit": "https://www.reddit.com/user/jens-johnson"
     }
+  },
+  "blog": {
+    "imageRoot": "assets/images/blog/posts",
+    "pageSettings": {
+      "postsPerPage": 8
+    }
   }
 }

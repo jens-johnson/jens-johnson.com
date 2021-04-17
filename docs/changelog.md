@@ -6,12 +6,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.2.0] - 2019-04-09
+## [2.0.0] - 2021-04-16
 ### Added
-- Client-side contact submission
-- Client API module
+- Client-side modules:
+   - Pagination
+- **Blog page**
+   - Client-side blog page component
+      - Header
+      - Landing page
+      - Default "no posts found" page
+      - Blog router
+      - Blog post component
+         - Post blurb
+            - Landing page
+            - Blog page
+         - Default "no post found" component
+      - Blog sidebar component
+   - Blog controller
 
-## [1.2.0] - 2019-04-08
+## [1.2.0] - 2021-04-08
 ### Changed
 - Modified server scripts
 - Server config
@@ -23,12 +36,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
       - Models
    - Router
 
-## [1.1.0] - 2019-03-22
+## [1.1.0] - 2021-03-22
 ### Added
 - Added jsdocs support
 - Created `bin/www` run script
 
-## [1.1.0] - 2019-03-21
+## [1.1.0] - 2021-03-21
 ### Added
 - Client-side configuration
    - Config module
@@ -42,7 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Directory structure and modules
 
-## [1.0.0] - 2019-03-19
+## [1.0.0] - 2021-03-19
 ### Added
 - Created initial scaffolding
 - `.gitignore`, `package.json`, documentation

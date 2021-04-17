@@ -35,6 +35,7 @@ server.use(bodyParser.json());
 server.use('/api', router);
 
 server.use(express.static(path.resolve(__dirname, '../dist')));
+server.get('*', (_, res) => res.sendFile(path.resolve(__dirname, '../dist/index.html')));
 
 module.exports = {
     server

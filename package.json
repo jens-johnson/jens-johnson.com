@@ -12,7 +12,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node bin/www",
-    "start:dev": "webpack serve",
+    "start:dev": "webpack -w & node bin/www && fg",
     "build": "webpack",
     "build:dev": "webpack --mode development",
     "scss:watch": "node-sass $npm_package_config_scss_root/scss -o $npm_package_config_scss_root/css --watch",
@@ -55,7 +55,9 @@
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",
     "jquery": "^3.6.0",
+    "moment": "^2.29.1",
     "node-sass": "^5.0.0",
+    "query-string": "^7.0.0",
     "react-bootstrap": "^1.5.2",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",

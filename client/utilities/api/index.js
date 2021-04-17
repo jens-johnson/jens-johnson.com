@@ -30,6 +30,29 @@ const post = (route, body) => {
     });
 }
 
+/**
+ * Submits a get request over the API.
+ *
+ * @param {string} route
+ * @return {Promise<Response | void>}
+ */
+const get = (route) => {
+  const {
+    api: {
+      headers
+    }
+  } = Config;
+  return Promise.resolve({})
+    .then(() => fetch(`/api/${route}`, {
+      headers: headers || DEFAULT_HEADERS
+    }))
+    .then(res => res.json())
+    .catch(err => {
+      throw new Error(`Error submitting API data: ${err}`)
+    });
+}
+
 export {
-  post
+  post,
+  get
 };
