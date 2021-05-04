@@ -76,7 +76,6 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "eval": "^0.1.6",
     "express": "^4.17.1",
     "express-pino-logger": "^6.0.0",
     "jsdoc": "^3.6.6",
