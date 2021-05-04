@@ -24,6 +24,11 @@ class s3Client {
     this.logger = logger;
   }
 
+  /**
+   * Instatiates connection to s3
+   *
+   * @return {S3}
+   */
   instantiateS3Connection() {
     const options = {
       accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -109,7 +114,6 @@ class s3Client {
               reject(error);
             } else {
               const { Body } = data;
-              console.log('***', _eval(Body))
               const result = _eval(Body.toString(), true);
               resolve(result);
             }

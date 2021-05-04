@@ -3,7 +3,7 @@ import 'regenerator-runtime/runtime';
 import { get } from '../api';
 
 /**
- * Retrieves an image for a blog post using dynamic imports
+ * Retrieves an image for a blog post over the API
  *
  * @param {Object} date
  * @param {string} size (either 'small' or 'large')
