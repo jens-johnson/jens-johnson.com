@@ -38,7 +38,7 @@
     }
   },
   "blog": {
-    "imageRoot": "assets/images/blog/posts",
+    "imageRoot": "assets/images/pages/blog/posts",
     "pageSettings": {
       "postsPerPage": 8
     }

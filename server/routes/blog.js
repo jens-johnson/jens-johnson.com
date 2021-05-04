@@ -18,6 +18,12 @@ router.route('/posts/featured')
 router.route('/posts/:year-:month-:day')
   .get(blog.getPost);
 
+router.route('/posts/images/:year-:month-:day_:size')
+  .get(blog.getImage);
+
+// router.route('/posts/content/:year-:month-:day')
+//   .get(blog.getContent);
+
 module.exports = {
   blog: router
 };

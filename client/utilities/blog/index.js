@@ -83,8 +83,10 @@ const retrievePost = async ({ year, month, day }, stateSetter) => {
  */
 const retrieveContent = async ({ year, month, day }, stateSetter) => {
   try {
-    const { default: content } = await import(`~/content/blog/posts/${year}/${month}/${month}-${day}-${year}`);
+    const { default: content } = await import(`~/content/blog/posts/${year}/${month}/${day}/`);
     stateSetter(content);
+    // Deprecated content import (from AWS)
+    // const { content } = await get(`blog/posts/content/${year}-${month}-${day}`);
   } catch (err) {
     stateSetter(null);
   }

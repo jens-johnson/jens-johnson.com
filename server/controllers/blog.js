@@ -1,9 +1,12 @@
-const moment = require('moment');
 const db = require('../db');
+const { s3Client } = require('../aws');
 const {
   blog: {
     maxTagsShown,
-    maxFeaturedPostsShown
+    maxFeaturedPostsShown,
+    imageBucket: {
+      bucketName: imageBucketName
+    }
   }
 } = require('../config');
 const { getLogger } = require('../logging');
@@ -94,10 +97,10 @@ const getAllPosts = async (req, res) => {
     if (query) {
       const { dates, categories } = query;
       if (dates) {
-        let dates = Array.isArray(dates) ? dates : [ dates ];
-        dates = dates.map(date => parseInt(date, 10));
+        let datesFilter = Array.isArray(dates) ? dates : [ dates ];
+        datesFilter = datesFilter.map(date => parseInt(date, 10));
         filter['$expr'] = {
-          $in: [{ $year: "$date" }, dates]
+          $in: [{ $year: "$date" }, datesFilter]
         };
       }
       if (categories) {
@@ -165,13 +168,73 @@ const getPost = async (req, res) => {
     });
     res.status(200).send({ post });
     logger.info({
-      msg: `successfully retrieved post for date ${date[1]}-${date[2]}-${date[0]} from MongoDB`,
+      msg: `successfully retrieved post for date ${date} from MongoDB`,
       post
     });
   } catch (error) {
+    res.status(400).send({ posts: null, content: null, error });
+    logger.error({
+      msg: `failed to retrieve post for date ${date} from MongoDB`,
+      error
+    });
+  }
+}
+
+/**
+ * @deprecated
+ * Retrieves a content module from S3 for a blog post
+ *
+ * @param {Object} req
+ * @param {Object} res
+ */
+const getContent = async (req, res) => {
+  const { path } = req;
+  const paths = path.split('/');
+  const date = new Date(paths[paths.length - 1]).toISOString();
+  const key = `/${paths[paths.length - 1].replace(/-/g, '/')}/`;
+  const client = new s3Client(contentBucketName);
+  try {
+    const content = await client.retrieveContentModule(key);
+    logger.info({
+      msg: 'Successfully retrieved content module from MongoDB',
+      date
+    });
+    res.status(200).send({ content });
+  } catch (error) {
     res.status(400).send({ posts: null, error });
     logger.error({
-      msg: `failed to retrieve post for date ${date[1]}-${date[2]}-${date[0]} from MongoDB`,
+      msg: 'failed to retrieve content posts from MongoDB',
+      date,
+      error
+    });
+  }
+}
+
+/**
+ * Retrieves a blog image from S3 for a blog post
+ *
+ * @param {Object} req
+ * @param {Object} res
+ */
+const getImage = async (req, res) => {
+  const { path } = req;
+  const paths = path.split('/');
+  const [ date, size ] = paths[paths.length - 1].split('_');
+  const [ year, month, day ] = date.split('-');
+  const dateToString = new Date(date).toISOString();
+  const client = new s3Client(imageBucketName);
+  try {
+    const buffer = await client.retrieveBlogImage({ year, month, day }, size);
+    logger.info({
+      msg: 'Successfully retrieved blog image from S3',
+      date: dateToString
+    });
+    res.status(200).send({ buffer });
+  } catch (error) {
+    res.status(400).send({ buffer: null, error });
+    logger.error({
+      msg: 'failed to retrieve blog image from S3',
+      date: dateToString,
       error
     });
   }
@@ -181,6 +244,8 @@ module.exports = {
   getAllTags,
   getAllDates,
   getAllPosts,
+  getImage,
   getFeaturedPosts,
-  getPost
+  getPost,
+  getContent
 };

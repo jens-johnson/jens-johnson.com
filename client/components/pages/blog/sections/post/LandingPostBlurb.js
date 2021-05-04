@@ -18,9 +18,9 @@ const LandingPostBlurb = ({ data }) => {
   } = data;
   const [ postImage, setPostImage ] = useState(null);
 
-  const { year, month, day } = normalize(date);
+  const { year, month, day } = padDate(normalize(date));
   const authors = postAuthors.length > 1 ? postAuthors.join(', ') : postAuthors;
-  const endpoint = padDate({ year, month, day });
+  const endpoint = [ year, month, day ].join('/');
 
   useEffect(() => {
     retrieveBlogImage({ year, month, day }, 'small', setPostImage);

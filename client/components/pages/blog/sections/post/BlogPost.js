@@ -5,6 +5,7 @@ import { retrieveBlogImage } from '~/utilities/image';
 import { retrievePost, retrieveContent } from '~/utilities/blog';
 import { normalize } from '~/utilities/date';
 import placeHolderImage from '~/assets/images/pages/blog/post-placeholder-image.jpg';
+import moment from "moment";
 
 /**
  * Blog Post component
@@ -50,7 +51,9 @@ const BlogPost = () => {
                 </div>
                 <p>{ description || '' }</p>
                 <hr />
-                { postContent }
+                <div>
+                  { postContent }
+                </div>
               </div>
             </div>
           );
