@@ -50,7 +50,9 @@ const BlogPost = () => {
                 </div>
                 <p>{ description || '' }</p>
                 <hr />
-                { postContent }
+                <div>
+                  { postContent }
+                </div>
               </div>
             </div>
           );

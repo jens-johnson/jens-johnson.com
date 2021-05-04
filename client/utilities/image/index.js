@@ -1,22 +1,18 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import Config from '~/config';
+import { get } from '../api';
 
 /**
- * Retrieves an image for a blog post using dynamic imports
+ * Retrieves an image for a blog post over the API
  *
  * @param {Object} date
  * @param {string} size (either 'small' or 'large')
  * @param {function} stateSetter
  */
 const retrieveBlogImage = async ({ year, month, day }, size, stateSetter) => {
-  const {
-    blog: {
-      imageRoot
-    }
-  } = Config;
   try {
-    const { default: image } = await import(`~/${imageRoot}/${year}/${month}/${month}-${day}-${year}_${size}.png`);
+    const { buffer } = await get(`blog/posts/images/${year}-${month}-${day}_${size}`);
+    const image = 'data:image/jpg;base64,' + btoa(String.fromCharCode.apply(null, buffer.data));
     stateSetter(image);
   } catch (err) {
     stateSetter(null);

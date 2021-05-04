@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.1.0] - 2021-05-04
+### Changed
+- Modified client date module to support returning objects
+- Modified client browser module to support redirects to blog page
+- Updated blog router/controller
+   - `GET /posts/images/:year-:month-:day_:size`
+### Added
+- Default redirect for home page
+- AWS Client
+   - Image retrieval utility
+   - Content module retrieval utility (deprecated)
+
+
 ## [2.0.0] - 2021-04-16
 ### Added
 - Client-side modules:

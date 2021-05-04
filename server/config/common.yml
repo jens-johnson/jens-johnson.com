@@ -7,3 +7,8 @@ logging:
 blog:
   maxTagsShown: 20
   maxFeaturedPostsShown: 3
+  contentBucketName: 'jens-johnson.com-blogposts'
+  imageBucket:
+    bucketName: 'jens-johnson.com-blogimages'
+    defaultImagePrefix: 'default'
+

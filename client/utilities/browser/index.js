@@ -17,14 +17,17 @@ const modifyQueryString = (key, value) => {
       keyField += ',' + value
     } else {
       let keysArr = keyField.split(',');
-      keysArr.push(value);
+      if (!keysArr.contains(value)) {
+        keysArr.push(value);
+      }
       keyField = keysArr.join(',');
     }
     query[key] = keyField;
   } else {
     query[key] = value;
   }
-  window.location.search = queryString.stringify(query);
+  const updatedQueryString = queryString.stringify(query);
+  window.location = `${window.location.origin}/blog?${updatedQueryString}`;
 }
 
 /**

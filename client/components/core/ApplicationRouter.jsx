@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Footer from './Footer';
 import Home from '~/components/pages/home';
 import Blog from '~/components/pages/blog';
@@ -22,6 +22,9 @@ class ApplicationRouter extends Component {
                     </Route>
                     <Route path="/blog">
                       <Blog />
+                    </Route>
+                    <Route>
+                      <Redirect to='/'/>
                     </Route>
                 </Switch>
                 <Footer />

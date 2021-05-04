@@ -4,10 +4,14 @@ import moment from 'moment';
  * Zero-pads a date string in the format of YYYY-MM-DD
  *
  * @param {Object} date
- * @return {string}
+ * @return {Object}
  */
 const padDate = ({ year, month, day }) => {
-  return `${year}/${String(month).padStart(2, '0')}/${String(day).padStart(2, '0')}`;
+  return {
+    year,
+    month: `${String(month).padStart(2, '0')}`,
+    day: `${String(day).padStart(2, '0')}`
+  };
 }
 
 /**
@@ -16,7 +20,7 @@ const padDate = ({ year, month, day }) => {
  * @return {{month: number, year: number, day: number}}
  */
 const normalize = (date) => {
-  const { years: year, months, date: day } = moment(date).toObject();
+  const { years: year, months, date: day } = moment.utc(date).toObject();
   return {
     year,
     month: months + 1,
