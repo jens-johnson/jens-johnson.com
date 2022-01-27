@@ -1,4 +1,4 @@
-# Infrastructure Creation
+# Infrastructure
 
 *Last Updated: 2022-01-27*
 

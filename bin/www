@@ -40,8 +40,5 @@ function onError(error) {
  * Binding for HTTP Server onListening event.
  */
 function onListening() {
-  console.log("HTTP Server listening.", {
-    port,
-    bind: typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port
-  });
+  console.log("HTTP Server listening.", typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port);
 }

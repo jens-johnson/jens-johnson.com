@@ -1,11 +1,11 @@
 # [jens-johnson.com](https://www.jens-johnson.com)
-##### v3.0.0 💻 ([📜changelog](docs/changelog.md))
+##### v3.0.0 💻
 
 *Last Updated: 2022-01-27*
 
 ---
 
-**[🔗Documentation](docs)** **[🌎Site](https://www.jens-johnson.com)**
+**[🔗Documentation](docs)** | **[📜Changelog](docs/changelog.md)** | **[🌎Site](https://www.jens-johnson.com)**
 
 ## Introduction
 
