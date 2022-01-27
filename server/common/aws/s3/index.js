@@ -6,10 +6,7 @@ const aws = require('aws-sdk');
  * @returns {aws.S3}
  */
 function buildS3Client() {
-  return new aws.S3({
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-  });
+  return new aws.S3();
 }
 
 module.exports = {

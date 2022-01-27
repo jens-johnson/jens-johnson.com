@@ -1,5 +1,11 @@
 const pino = require('express-pino-logger');
-const { logging } = require('../config');
+const { logging } = require('../../config');
+
+const {
+  defaultConfig: {
+    loggingOptions
+  }
+} = logging;
 
 /**
  * Returns a pino logger with the given namespace
@@ -8,15 +14,15 @@ const { logging } = require('../config');
  * @returns {*}
  */
 function getLogger(name) {
-  const {
-    defaultConfig: {
-      loggingOptions
-    }
-  } = logging;
   const { logger } = pino({ ...loggingOptions, name });
   return logger;
 }
 
+function getLoggingMiddleware(name) {
+  return pino({ ...loggingOptions, name });
+}
+
 module.exports = {
-  getLogger
+  getLogger,
+  getLoggingMiddleware
 };

@@ -3,7 +3,7 @@ const { getLogger } = require('../common/logging');
 
 const logger = getLogger('mongoose-client');
 
-const MONGOOSE_URI = process.env.MONGO_URI;
+const MONGOOSE_URI = process.env.MONGODB_URI;
 
 mongoose.connection.on('open', () => {
   logger.info({

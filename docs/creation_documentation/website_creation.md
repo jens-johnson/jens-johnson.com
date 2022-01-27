@@ -3,6 +3,16 @@
 _Last modified: 3-21-21_
 
 ---
+
+## Environment Variables
+
+```
+AWS_REGION=
+AWS_COGNITO_IDENTITY_POOL_ID=
+MONGODB_URI=
+MONGODB_PORT=
+```
+
 ## Introduction
 This document will (attempt) to capture how I created this project; capturing practices, patterns, learnings, etc.
 

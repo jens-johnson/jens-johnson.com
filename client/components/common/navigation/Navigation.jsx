@@ -36,19 +36,13 @@ class Navigation extends Component {
     this.construct = this.construct.bind(this);
   }
 
-  /**
-   * Function construct
-   *
-   * @method
-   * @description: Class method for Navigation component. Dynamically constructs navigation items for navigation bar using passed in 'sections' prop.
-   **/
   construct() {
     let sections = _.merge(defaultSections, this.props.sections);
-    sections['Contact'].order = _.maxBy(sections, 'order') + 1;
-    sections = _.sortBy(sections, 'order');
+    sections['Contact'].order = _.maxBy(Object.values(sections), 'order').order + 1;
+    sections = Object.fromEntries(_.sortBy(Object.entries(sections), ([, values ]) => values.order));
     return React.createElement('ul',
       { 'className': 'navbar-nav mr-0 ml-auto' },
-      sections.map((section) => {
+      Object.keys(sections).map((section) => {
         return (
           <li className='nav-item' key={sections[section].order}>
             <a className='nav-link' href={sections[section].href}>{section}</a>

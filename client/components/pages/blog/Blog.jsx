@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Navigation } from '~/components/navigation';
+import { Navigation } from '~/components/common/navigation';
 import { Header, Router } from './core';
 
 class Blog extends Component {

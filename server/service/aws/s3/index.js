@@ -34,6 +34,6 @@ function getFile({ bucket, key }) {
     });
 }
 
-export default {
+module.exports = {
   getFile
 };

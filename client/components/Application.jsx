@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Router } from './navigation';
+import { Router } from './common/navigation';
 
 class Application extends Component {
   render() {

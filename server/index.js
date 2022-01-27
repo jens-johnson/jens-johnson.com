@@ -7,11 +7,12 @@ const path = require('path');
 const router = require('./router');
 const { normalizePort } = require('./utilities');
 const { defaultPort } = require('./config');
-const { getLogger } = require('common/logging');
+const { getLogger, getLoggingMiddleware } = require('./common/logging');
 const { connect } = require('./db');
 
 const logger = getLogger('server');
 const applicationLogger = getLogger('express-server');
+const loggingMiddleware = getLoggingMiddleware('jens-johnson.com');
 const server = express();
 const port = normalizePort(process.env.PORT || defaultPort || 8080);
 
@@ -30,7 +31,7 @@ connect()
 
 server.set('port', port);
 
-server.use(applicationLogger);
+server.use(loggingMiddleware);
 server.use(cors());
 server.use(express.json());
 server.use(bodyParser.json());

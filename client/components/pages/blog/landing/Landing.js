@@ -3,7 +3,7 @@ import { v4 as uuidV4 } from 'uuid';
 import blogClient from '~/client/blog';
 import { parseQueryString } from '~/utils/blog/search';
 
-import { Pagination } from '~/components/pagination';
+import { Pagination } from '~/components/common/pagination';
 import Blurb from './Blurb';
 import NoPostsFound from './NoPostsFound';
 
