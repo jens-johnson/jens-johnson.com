@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Config from './config';
+
 import { Application, Head } from './components';
+
+import Config from './config';
 
 const {
   react: {

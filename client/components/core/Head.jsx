@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+
 import { Helmet } from 'react-helmet';
+
 import jQuery from 'jquery';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '~/assets/scripts/plugins/owl.carousel.min.js';

@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
+
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+
 import { Footer, SectionLoader } from '~/components/core';
 import { Blog, Home } from '~/components/pages';
 
-/**
- * Application Router component
- *
- * @component
- * @description Provides a router using react-router for client-side routing over the application.
- */
 class Router extends Component {
   render() {
     return(

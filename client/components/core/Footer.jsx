@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationArrow, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { Contact, SocialIcons } from './misc';
 
-/**
- * Footer component
- *
- * @component
- * @description Footer component with contact form and site map.
- */
+import { SocialIcons } from '~/components/common/social';
+import { Contact } from '~/components/common/contact';
+
 class Footer extends Component {
   render() {
     return(

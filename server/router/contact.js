@@ -4,6 +4,6 @@ const { contact } = require('../controllers');
 const router = express.Router();
 
 router.route('/submit')
-  .post(contact.cr);
+  .post(contact.createContactRequest);
 
 module.exports = router;

@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
 
-/**
- * Section loader component
- *
- * @component
- * @description Section loader component. Provides loading animation for pages.
- */
 class SectionLoader extends Component {
   render() {
     return(

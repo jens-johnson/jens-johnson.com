@@ -1,11 +1,38 @@
 import api from '~/client/api';
 import { generateImageUrlFromBuffer } from '~/utils/image';
 
+function getAllDates() {
+  return api.get('blog/dates/all')
+    .then(({ dates }) => dates)
+    .catch(error => {
+      console.error('Failed to retrieve blog dates', error);
+      return [];
+    });
+}
+
+function getAllTags() {
+  return api.get('blog/tags/all')
+    .then(({ tags }) => tags)
+    .catch(error => {
+      console.error('Failed to retrieve blog tags', error);
+      return [];
+    });
+}
+
 function getAllPosts(query) {
   return api.get(`blog/posts/all${query ? `?${query}`: ''}`)
     .then(({ posts }) => posts)
     .catch(error => {
       console.error('Unable to fetch posts', error);
+      return [];
+    });
+}
+
+function getFeaturedPosts() {
+  return api.get('blog/posts/featured')
+    .then(({ posts }) => posts)
+    .catch(error => {
+      console.error('Failed to retrieve featured posts', error);
       return [];
     });
 }
@@ -40,6 +67,9 @@ function getImage({ year, month, day, size }) {
 
 export default {
   getAllPosts,
+  getFeaturedPosts,
+  getAllTags,
+  getAllDates,
   getPost,
   getImage,
   getContent

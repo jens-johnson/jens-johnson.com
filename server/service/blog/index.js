@@ -1,7 +1,6 @@
 const blogPost = require('../../db/blog/blogPost');
 const s3Service = require('../aws/s3');
 const { getLogger } = require('../../common/logging');
-const { s3 } = require('../../common/aws');
 const { DatabaseError } = require('../../common/errors');
 const config = require('../../config');
 
@@ -13,7 +12,6 @@ const {
   }
 } = config;
 
-const s3Client = s3.buildS3Client();
 const logger = getLogger('blog-service');
 
 /**
