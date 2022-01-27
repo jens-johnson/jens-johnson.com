@@ -20,6 +20,7 @@
 - [ ] Request/response validation
 - `assets`
   - [ ] General clean-up
+  - [ ] Google Maps API integration
 - `content`
   - [ ] General clean-up
 
@@ -32,6 +33,7 @@
 
 ## Miscellaneous
 
+- [ ] Secure storage for secrets, environment variables
 - [ ] Set-up home page
   - [ ] About me, service, etc.
 - [ ] Hosting images on S3
