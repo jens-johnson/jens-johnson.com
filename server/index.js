@@ -4,30 +4,33 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 const path = require('path');
-const router = require('./routes');
+const router = require('./router');
 const { normalizePort } = require('./utilities');
-const {
-    defaultPort
-} = require('./config');
-const { getLogger } = require('./logging');
-const { dbInstance, connect } = require('./db');
+const { defaultPort } = require('./config');
+const { getLogger } = require('common/logging');
+const { connect } = require('./db');
 
-const serverLogger = getLogger('server');
-const { logger } = serverLogger;
+const logger = getLogger('server');
+const applicationLogger = getLogger('express-server');
 const server = express();
 const port = normalizePort(process.env.PORT || defaultPort || 8080);
 
-connect(dbInstance).then(() => {
-    logger.info('Server listening to DB');
-}).catch((error) => {
-    logger.error('Server failed to establish DB connection', {
-        error
-    });
-});
+connect()
+  .then(success => {
+    if (success) {
+      logger.info({
+        message: 'Server established DB connection',
+      });
+    } else {
+      logger.error({
+        message: 'Server failed to establish connection to DB'
+      });
+    }
+  });
 
 server.set('port', port);
 
-server.use(serverLogger);
+server.use(applicationLogger);
 server.use(cors());
 server.use(express.json());
 server.use(bodyParser.json());
@@ -38,5 +41,5 @@ server.use(express.static(path.resolve(__dirname, '../dist')));
 server.get('*', (_, res) => res.sendFile(path.resolve(__dirname, '../dist/index.html')));
 
 module.exports = {
-    server
+  server
 };

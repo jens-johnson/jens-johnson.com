@@ -4,11 +4,13 @@ logging:
     loggingOptions:
       name: 'jens-johnson.com-logger'
       destination: 1
+aws:
+  s3:
+    blogImageBucket:
+      name: 'jens-johnson.com-blogimages'
+      defaultImagePrefix: 'default'
+    blogContentBucket:
+      name: 'jens-johnson.com-blogposts'
 blog:
   maxTagsShown: 20
   maxFeaturedPostsShown: 3
-  contentBucketName: 'jens-johnson.com-blogposts'
-  imageBucket:
-    bucketName: 'jens-johnson.com-blogimages'
-    defaultImagePrefix: 'default'
-

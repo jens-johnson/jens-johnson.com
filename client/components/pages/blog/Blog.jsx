@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Navigation } from '~/components/core/misc';
-import { Header, Router } from './sections';
+import { Navigation } from '~/components/navigation';
+import Header from './Header';
+import Router from './Router';
 
 /**
  * Blog component
