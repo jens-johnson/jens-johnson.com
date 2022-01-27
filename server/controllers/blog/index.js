@@ -5,11 +5,11 @@ const { getLogger } = require('../../common/logging');
 const logger = getLogger('blog-api');
 
 /**
- * Retrieves all blog tags from the DB.
+ * Retrieves all blog tags from the DB
  *
- * @param req
- * @param res
- * @returns {Promise<void>}
+ * @param {Object} req
+ * @param {Object} res
+ * @returns {Promise}
  */
 function getAllTags(req, res) {
   return blogService.getAllBlogTags()
@@ -34,11 +34,11 @@ function getAllTags(req, res) {
 }
 
 /**
- * Retrieves all blog tags from the DB.
+ * Retrieves all blog tags from the DB
  *
- * @param req
- * @param res
- * @returns {Promise<void>}
+ * @param {Object} req
+ * @param {Object} res
+ * @returns {Promise}
  */
 function getAllDates(req, res) {
   return blogService.getAllBlogDates()
@@ -63,11 +63,11 @@ function getAllDates(req, res) {
 }
 
 /**
- * Retrieves all blog posts from the db
+ * Retrieves all blog posts from the DB
  *
  * @param {Object} req
  * @param {Object} res
- * @returns {Promise<void>}
+ * @returns {Promise}
  */
 function getAllPosts(req, res) {
   return Promise.resolve(req)
@@ -94,11 +94,11 @@ function getAllPosts(req, res) {
 }
 
 /**
- * Retrieves all blog posts from the db
+ * Retrieves featured blog posts from the DB
  *
  * @param {Object} req
  * @param {Object} res
- * @returns {Promise<void>}
+ * @returns {Promise}
  */
 function getFeaturedPosts(req, res) {
   return blogService.getFeaturedBlogPosts()
@@ -122,11 +122,11 @@ function getFeaturedPosts(req, res) {
 }
 
 /**
- * Retrieves all blog posts from the db
+ * Retrieves a blog post from the DB
  *
  * @param {Object} req
  * @param {Object} res
- * @returns {Promise<void>}
+ * @returns {Promise}
  */
 function getPost(req, res) {
   return Promise.resolve(req)
@@ -153,11 +153,11 @@ function getPost(req, res) {
 }
 
 /**
- * Retrieves blog image from S3.
+ * Retrieves a blog image from S3
  *
  * @param {Object} req
  * @param {Object} res
- * @returns {Promise<void>}
+ * @returns {Promise}
  */
 function getImage(req, res) {
   return Promise.resolve(req)
@@ -179,7 +179,7 @@ function getImage(req, res) {
         success: false,
         error
       });
-      return res.status(200).send({ buffer: null });
+      return res.status(404).send({ buffer: null });
     })
 }
 

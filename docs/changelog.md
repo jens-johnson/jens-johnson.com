@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.0.0] - 2022-01-27
+### Changed
+- Refactored the entire site, including server and client
+  - Restructure of client and server components
+
 ## [2.1.0] - 2021-05-04
 ### Changed
 - Modified client date module to support returning objects

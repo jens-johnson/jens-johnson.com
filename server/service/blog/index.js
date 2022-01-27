@@ -2,7 +2,6 @@ const blogPost = require('../../db/blog/blogPost');
 const s3Service = require('../aws/s3');
 const { getLogger } = require('../../common/logging');
 const { DatabaseError } = require('../../common/errors');
-const config = require('../../config');
 
 const {
   aws: {
@@ -10,14 +9,35 @@ const {
       blogImageBucket
     }
   }
-} = config;
+} = require('../../config');
 
 const logger = getLogger('blog-service');
 
 /**
- * Retrieves all blog tags from the DB.
  *
- * @returns {Promise<[]>}
+ * @param {string|string[]} dates
+ * @param {string|string[]} categories
+ * @returns {Object}
+ */
+function buildPostSearchFilter({ dates, categories }) {
+  let filter = {};
+  if (dates) {
+    let datesFilter = Array.isArray(dates) ? dates : [ dates ];
+    datesFilter = datesFilter.map(date => parseInt(date, 10));
+    filter['$expr'] = {
+      $in: [{ $year: "$date" }, datesFilter]
+    };
+  }
+  if (categories) {
+    filter['tags'] = Array.isArray(categories) ? { $in: categories } : categories;
+  }
+  return filter;
+}
+
+/**
+ * Retrieves an array of all blog tags from the DB with their respective usage counts
+ *
+ * @returns {Promise}
  */
 function getAllBlogTags() {
   return blogPost.getAllTags()
@@ -40,9 +60,9 @@ function getAllBlogTags() {
 }
 
 /**
- * Retrieves all blog dates from the DB.
+ * Retrieves an array of all blog dates (grouped by year) from the DB with their respective post counts
  *
- * @returns {Promise<[]>}
+ * @returns {Promise}
  */
 function getAllBlogDates() {
   return blogPost.getAllDates()
@@ -65,24 +85,15 @@ function getAllBlogDates() {
 }
 
 /**
- * Retrieves all blog dates from the DB.
+ * Retrieves all blog dates from the DB, optionally filtered by dates and tags
  *
- * @param {{ dates: string|string[], categories: string|string[] }}
- * @returns {Promise<[]>}
+ * @param {{ dates: string|string[], categories: string|string[] }} request
+ * @returns {Promise}
  */
-function getAllBlogPosts({ dates, categories }) {
-  let filter = {};
-  if (dates) {
-    let datesFilter = Array.isArray(dates) ? dates : [ dates ];
-    datesFilter = datesFilter.map(date => parseInt(date, 10));
-    filter['$expr'] = {
-      $in: [{ $year: "$date" }, datesFilter]
-    };
-  }
-  if (categories) {
-    filter['tags'] = Array.isArray(categories) ? { $in: categories } : categories;
-  }
-  return blogPost.getAllPosts(filter)
+function getAllBlogPosts(request) {
+  return Promise.resolve(request)
+    .then(buildPostSearchFilter)
+    .then(blogPost.getAllPosts)
     .then(posts => {
       logger.debug({
         event: 'getAllBlogPosts',
@@ -112,7 +123,7 @@ function getAllBlogPosts({ dates, categories }) {
 /**
  * Retrieves featured blog posts from the DB
  *
- * @returns {Promise<[]>}
+ * @returns {Promise}
  */
 function getFeaturedBlogPosts() {
   return blogPost.getFeaturedPosts()
@@ -134,10 +145,10 @@ function getFeaturedBlogPosts() {
 }
 
 /**
- * Retrieves blog post from the DB by date.
+ * Retrieves blog post from the DB queried by date
  *
  * @param {string} date
- * @returns {Promise<{}>}
+ * @returns {Promise}
  */
 function getBlogPost({ date }) {
   return blogPost.getPostByDate(date)
@@ -164,8 +175,11 @@ function getBlogPost({ date }) {
 /**
  * Retrieves blog image from S3.
  *
- * @param {string} date
- * @returns {Promise<{}>}
+ * @param {string} size
+ * @param {string} year
+ * @param {string} month
+ * @param {string} day
+ * @returns {Promise}
  */
 function getBlogImage({ size, year, month, day }) {
   return s3Service.getFile({ bucket: blogImageBucket.name, key: `${year}/${month}/${day}/${blogImageBucket.defaultImagePrefix}_${size}.jpg` })

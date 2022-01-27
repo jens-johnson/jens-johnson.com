@@ -2,9 +2,16 @@ const { s3 } = require('../../../common/aws');
 const { S3Error } = require('../../../common/errors');
 const { getLogger } = require('../../../common/logging');
 
-const logger = getLogger('S3-service');
+const logger = getLogger('aws-S3-service');
 const s3Client = s3.buildS3Client();
 
+/**
+ * Retrieves a file from S3 and returns its buffer representation
+ *
+ * @param {string} bucket
+ * @param {key} key
+ * @returns {Promise}
+ */
 function getFile({ bucket, key }) {
   const params = {
     Bucket: bucket,

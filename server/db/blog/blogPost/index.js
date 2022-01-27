@@ -7,6 +7,11 @@ const {
   }
 } = require('../../../config');
 
+/**
+ * Returns all blog tags from the DB
+ *
+ * @returns {Promise}
+ */
 function getAllTags() {
   return BlogPost.aggregate([
     {
@@ -25,6 +30,11 @@ function getAllTags() {
   ]).sort({ count: -1 }).limit(maxTagsShown);
 }
 
+/**
+ * Returns all blog dates from the DB
+ *
+ * @returns {Promise}
+ */
 function getAllDates() {
   return BlogPost.aggregate([
     {
@@ -40,10 +50,21 @@ function getAllDates() {
   ]).sort({ count: -1 })
 }
 
+/**
+ * Returns all blog posts from the DB with an optional given filter
+ *
+ * @param {Object} filter
+ * @returns {Promise}
+ */
 function getAllPosts(filter) {
   return BlogPost.find(filter).sort('-date');
 }
 
+/**
+ * Returns all featured blog posts from the DB
+ *
+ * @returns {Promise}
+ */
 function getFeaturedPosts() {
   return BlogPost.find({ featured: true }).limit(maxFeaturedPostsShown).sort('-date')
     .then(featuredPosts =>
@@ -53,6 +74,12 @@ function getFeaturedPosts() {
     );
 }
 
+/**
+ * Retrieves a blog post from the DB by date
+ *
+ * @param {string} date
+ * @returns {Promise}
+ */
 function getPostByDate(date) {
   return BlogPost.findOne({
     date: { $gte: date }

@@ -1,5 +1,18 @@
+/**
+ * @typedef ContactMessage
+ * @property {string} first
+ * @property {string} last
+ * @property {string} email
+ * @property {string} message
+ */
+
 const ContactMessage = require('./ContactMessage');
 
+/**
+ *
+ * @param {Object} request
+ * @returns {ContactMessage}
+ */
 function toItem(request) {
   const {
     first,
@@ -15,6 +28,11 @@ function toItem(request) {
   };
 }
 
+/**
+ * Creates a Contact Message
+ * @param {Object} request
+ * @returns {Promise}
+ */
 function create(request) {
   return Promise.resolve(request)
     .then(toItem)

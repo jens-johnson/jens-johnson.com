@@ -31,6 +31,13 @@ const schemas = {
   }
 };
 
+/**
+ * Performs JSON schema validation on an object
+ *
+ * @param {Object} target
+ * @param {string} schema
+ * @returns {*}
+ */
 function validate(target, schema) {
   const { valid, errors } = jsonschema.validate(target, schemas[schema]);
   if (!valid) {

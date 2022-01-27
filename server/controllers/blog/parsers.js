@@ -1,3 +1,8 @@
+/**
+ *
+ * @param {Object} request
+ * @returns {{dates: string|string[], categories: string|string[]}}
+ */
 function getAllPostsRequest(request) {
   const {
     query: {
@@ -11,6 +16,11 @@ function getAllPostsRequest(request) {
   };
 }
 
+/**
+ *
+ * @param {Object} request
+ * @returns {{date: string}}
+ */
 function getPostRequest(request) {
   const {
     path
@@ -20,6 +30,11 @@ function getPostRequest(request) {
   };
 }
 
+/**
+ *
+ * @param {Object} request
+ * @returns {{size: string, month: string, year: string, day: string}}
+ */
 function getImageRequest(request) {
   const {
     path
@@ -34,6 +49,11 @@ function getImageRequest(request) {
   };
 }
 
+/**
+ *
+ * @param {Object} request
+ * @returns {{month: string, year: string, day: string}}
+ */
 function getContentRequest(request) {
   const {
     path

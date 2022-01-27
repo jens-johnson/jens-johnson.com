@@ -4,6 +4,12 @@ const { DatabaseError } = require('../../common/errors');
 
 const logger = getLogger('contact-service');
 
+/**
+ * Persists an email recipient to the DB
+ *
+ * @param {Object} request
+ * @returns {Promise}
+ */
 function persistEmailRecipient(request) {
   return emailRecipient.persist(request)
     .then(result => {
@@ -28,6 +34,12 @@ function persistEmailRecipient(request) {
     });
 }
 
+/**
+ * Creates a contact message in the DB
+ *
+ * @param {Object} request
+ * @returns {Promise}
+ */
 function createContactMessage(request) {
   return contactMessage.create(request)
     .then(result => {
@@ -44,13 +56,19 @@ function createContactMessage(request) {
         message: 'Failed to create contact message',
         event: 'createContactMessage',
         success: false,
-        message,
+        request,
         error
       });
       throw new DatabaseError('Failed to create contact message', 'ContactMessage');
     });
 }
 
+/**
+ * Creates a contact request in the DB by generating an email recipient and contact message
+ *
+ * @param {Object} request
+ * @returns {Promise}
+ */
 function createContactRequest(request) {
   let emailRecipientRequest, contactMessageRequest;
   if (request.emailListOptIn) {

@@ -5,6 +5,13 @@ const { getLogger } = require('../../common/logging');
 
 const logger = getLogger('contact-api');
 
+/**
+ * Creates a contact request in the DB
+ *
+ * @param {Object} req
+ * @param {Object} res
+ * @returns {Promise}
+ */
 function createContactRequest(req, res) {
   return Promise.resolve(req)
     .then(parsers.createContactRequest)

@@ -1,14 +1,12 @@
-# jens-johnson.com
-*Last Updated: 3-21-21*
+# [jens-johnson.com](https://www.jens-johnson.com)
+##### v3.0.0 💻 ([📜changelog](docs/changelog.md))
+
+*Last Updated: 2022-01-27*
 
 ---
 
-## Introduction
-This repository contains my personal website, as well as documentation and miscellaneous learnings/gleanings I've taken
-away in the process.
+**[🔗Documentation](docs)** **[🌎Site](https://www.jens-johnson.com)**
 
-**LINKS**
-- [Changelog](docs/changelog.md)
-- [Creation Documentation](docs/creation_documentation/website_creation.md)
-- [Project Dependencies](docs/dependencies.md)
-- [(Generally) followed develeopment practices](docs/development_practices.md)
+## Introduction
+
+This repository contains the source code for my personal website, as well as documentation capturing my learnings/findings creating this site.

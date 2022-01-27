@@ -12,7 +12,7 @@ mongoose.connection.on('open', () => {
 });
 
 /**
- * Connects to MongoDB; returns true/false on success/failure.
+ * Creates a connection to MongoDB
  *
  * @returns {Promise<boolean>}
  */
