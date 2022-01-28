@@ -1,5 +1,10 @@
 # Project Dependencies
 
+**Last Updated: 2022-01-28**
+
+The following is an in-depth overview of the dependencies listed in the project and their usages in development and 
+production.
+
 ## Master List
 
 - **`react`**ᴾ

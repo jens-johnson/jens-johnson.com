@@ -1,6 +1,9 @@
-# Creation Documentation
+# Website Creation Documentation
 
----
+Documentation surrounding the process of creating the website/application
 
-## [Website Creation](website_creation.md)
-A general guide of how this site was created
+## [`overview.md`](overview)
+A high-level overview summary
+
+## [Setup](setup)
+Further in-depth detailed setup information

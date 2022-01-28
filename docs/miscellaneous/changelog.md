@@ -1,17 +1,25 @@
 # Jens Johnson's Website: Changelog
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to 
+[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
----
+## [0.5.0] - 2022-01-28
+### Changed
+- **Server**
+  - Added pretty printing to logs
+  - DB request transformations
+- **Client**
+  - Cleaned up custom front-end scripts
+- Created API spec
+- Minor bug fixes
 
-## [3.0.0] - 2022-01-27
+## [0.4.0] - 2022-01-27
 ### Changed
 - Refactored the entire site, including server and client
   - Restructure of client and server components
 
-## [2.1.0] - 2021-05-04
+## [0.3.0] - 2021-05-04
 ### Changed
 - Modified client date module to support returning objects
 - Modified client browser module to support redirects to blog page
@@ -24,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - Content module retrieval utility (deprecated)
 
 
-## [2.0.0] - 2021-04-16
+## [0.2.0] - 2021-04-16
 ### Added
 - Client-side modules:
    - Pagination
@@ -42,7 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
       - Blog sidebar component
    - Blog controller
 
-## [1.2.0] - 2021-04-08
+## [0.2.0] - 2021-04-08
 ### Changed
 - Modified server scripts
 - Server config
@@ -54,12 +62,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
       - Models
    - Router
 
-## [1.1.0] - 2021-03-22
+## [0.1.0] - 2021-03-22
 ### Added
 - Added jsdocs support
 - Created `bin/www` run script
 
-## [1.1.0] - 2021-03-21
+## [0.1.0] - 2021-03-21
 ### Added
 - Client-side configuration
    - Config module
@@ -73,7 +81,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Directory structure and modules
 
-## [1.0.0] - 2021-03-19
+## [0.0.0] - 2021-03-19
 ### Added
 - Created initial scaffolding
 - `.gitignore`, `package.json`, documentation
