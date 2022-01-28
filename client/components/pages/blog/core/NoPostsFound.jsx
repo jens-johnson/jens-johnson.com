@@ -2,9 +2,14 @@ import React, { Component } from 'react';
 
 import noPostsFoundImage from '~/assets/images/pages/blog/no-posts-found.jpg';
 
+/**
+ * Default placeholder component for no posts found on the blog
+ *
+ * @component
+ */
 class NoPostsFound extends Component {
   render() {
-    return(
+    return (
       <div className="col-sm-12 col-md-12">
         <div className="mh-blog-item dark-bg blog-single no-posts-found">
           <img src={noPostsFoundImage} alt="" className="img-fluid" />

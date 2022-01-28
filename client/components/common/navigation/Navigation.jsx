@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+
 import Config from '~/config';
+
 import darkLogo_69x69 from '~/assets/images/core/icon/dark/dark_69x69.png';
 
 const {
@@ -12,26 +14,15 @@ const {
 } = Config;
 
 /**
- * Navigation component
+ * Navigation component that dynamically extends the default navbar using additional custom sections
  *
  * @component
- * @description Core navigation component. Constructs nav bar with given sections passed in as props.
- *
- * == PROPS ==:
- *  - sections: an object with the following format that describes any sections to be added to the navigation bar
- *    for a given page:
- *
- *    {
- *      section: {
- *        href: <relative path from route (i.e. '/blog')>,
- *        order: <numerical priority for item to appear on navbar (i.e. 1)>,
- *      }
- *    }
- *
- **/
+ * @param {Object} props
+ * @param {Object} props.sections - The extra sections to add to the navbar
+ */
 class Navigation extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.construct = this.construct.bind(this);
   }

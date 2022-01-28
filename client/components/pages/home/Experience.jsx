@@ -3,9 +3,14 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 
+/**
+ * Component representing the "Experience" section on the home page
+ *
+ * @component
+ */
 class Experience extends Component {
   render() {
-    return(
+    return (
       <section className="mh-experience" id="experience">
         <div className="bolor-overlay">
           <div className="container">

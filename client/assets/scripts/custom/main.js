@@ -1,10 +1,13 @@
-import { initLoaders, initNav, initContact, initMap } from './core';
+import initGoogleMaps from './googleMaps';
+import initNavigation from './navigation';
+import initPlugins from './plugins';
+import initScrolling from './scrolling';
 
-const LeftAndRightArrows = ["<svg class='svg-inline--fa fa-angle-left'></svg>", "<svg class='svg-inline--fa fa-angle-right'></svg>"]
+function loadScripts() {
+  initPlugins();
+  initNavigation();
+  initScrolling();
+  initGoogleMaps();
+}
 
-$(document).ready(() => {
-  initLoaders();
-  initMap();
-  initNav();
-  initContact();
-});
+$(document).ready(loadScripts);

@@ -5,6 +5,11 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Footer, SectionLoader } from '~/components/core';
 import { Blog, Home } from '~/components/pages';
 
+/**
+ * Core router component that provides a browser router over the application
+ *
+ * @component
+ */
 class Router extends Component {
   render() {
     return(

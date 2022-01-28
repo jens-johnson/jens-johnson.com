@@ -10,7 +10,6 @@ import '~/assets/scripts/plugins/jquery.mixitup.min.js';
 import '~/assets/scripts/plugins/circle-progress.js';
 import '~/assets/scripts/plugins/jquery.nav.js';
 import '~/assets/scripts/plugins/isotope.pkgd.js';
-import '~/assets/scripts/custom/maha-template.js';
 import '~/assets/scripts/custom/main.js';
 import '~/assets/styles/plugins/animate.css';
 import '~/assets/styles/plugins/owl/owl.carousel.min.css';
@@ -21,10 +20,9 @@ import '~/assets/styles/custom/css/responsive.css';
 import '~/assets/styles/custom/css/green.css';
 
 /**
- * Head component
+ * Header component that creates a page header using react-helmet, injecting script and css dependencies
  *
  * @component
- * @description Creates an HTML head component using react-helmet, injecting script and css dependencies.
  */
 class Head extends Component {
   render() {

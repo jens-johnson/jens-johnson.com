@@ -8,6 +8,11 @@ import { faRss } from '@fortawesome/free-solid-svg-icons';
 
 import Blurb from './Blurb';
 
+/**
+ * Component representing the blog section on the home page
+ *
+ * @component
+ */
 function Blog() {
   const [ state, setState ] = useState({
     posts: []

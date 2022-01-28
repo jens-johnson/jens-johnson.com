@@ -1,9 +1,7 @@
 defaultPort: 8080
 logging:
-  defaultConfig:
-    loggingOptions:
-      name: 'jens-johnson.com-logger'
-      destination: 1
+  config:
+    name: 'jens-johnson.com-logger'
 aws:
   s3:
     blogImageBucket:

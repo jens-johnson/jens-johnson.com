@@ -2,9 +2,14 @@ import React, { Component } from 'react';
 
 import noPostFoundImage from '~/assets/images/pages/blog/no-post-found.png';
 
+/**
+ * Default no post found component for when a blog post doesn't exist for a given route
+ *
+ * @component
+ */
 class NoPostFound extends Component {
   render() {
-    return(
+    return (
       <div>
         <div className="mh-blog-item dark-bg blog-single">
           <img src={noPostFoundImage} alt="" className="img-fluid" />

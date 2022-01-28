@@ -4,6 +4,11 @@ import { pad, normalize } from '~/utils/date';
 
 import placeHolderImage from '~/assets/images/pages/blog/post-placeholder-image_small.jpg';
 
+/**
+ * Component representing a blog post blurb for the home page blog section
+ *
+ * @component
+ */
 function Blurb({ data }) {
   const {
     title,
@@ -37,7 +42,7 @@ function Blurb({ data }) {
           <div className="mh-blog-post-info">
             <ul>
               <li><strong>Post On</strong><a href="">{`${state.month}-${state.day}-${state.year}`}</a></li>
-              <li><strong>By</strong><a href="">{state.authors.join(', ')}</a></li>
+              <li><strong>By</strong><a href="">{state.authors}</a></li>
             </ul>
           </div>
           <p>{state.description}</p>

@@ -6,6 +6,11 @@ import Config from '~/config';
 
 const { api } = Config;
 
+/**
+ *
+ * @param {Object} config
+ * @returns {Object}
+ */
 function configureRequest(config=undefined) {
   return {
     ...api.requests,
@@ -13,6 +18,11 @@ function configureRequest(config=undefined) {
   };
 }
 
+/**
+ *
+ * @param {Object} config
+ * @returns {Object}
+ */
 function configurePostRequest(config) {
   return {
     ...config,
@@ -21,6 +31,13 @@ function configurePostRequest(config) {
   }
 }
 
+/**
+ * Invokes the fetch API to make GET requests against the API back-end
+ *
+ * @param {string} route
+ * @param {Object} config
+ * @returns {Promise<Response>}
+ */
 function get(route, config=undefined) {
   return Promise.resolve(config)
     .then(configureRequest)
@@ -31,6 +48,13 @@ function get(route, config=undefined) {
     });
 }
 
+/**
+ * Invokes the fetch API to make POST requests against the API back-end
+ *
+ * @param {string} route
+ * @param {Object} config
+ * @returns {Promise<Response>}
+ */
 function post(route, request, config=undefined) {
   return Promise.resolve({ ...config, ...request })
     .then(configureRequest)

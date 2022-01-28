@@ -6,6 +6,11 @@ import NoPostFound from './NoPostFound';
 
 import placeHolderImage from '~/assets/images/pages/blog/post-placeholder-image.jpg';
 
+/**
+ * Primary blog post component
+ *
+ * @component
+ */
 function Post() {
   const { year, month, day } = useParams();
   const [ state, setState ] = useState({

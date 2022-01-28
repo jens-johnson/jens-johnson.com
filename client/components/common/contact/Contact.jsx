@@ -5,6 +5,11 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
+/**
+ * Contact form using React Bootstrap
+ *
+ * @component
+ */
 class Contact extends Component {
   submit() {
     const formData = {

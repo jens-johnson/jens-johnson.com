@@ -4,6 +4,13 @@ import { pad, normalize } from '~/utils/date';
 
 import placeHolderImage from '~/assets/images/pages/blog/post-placeholder-image_small.jpg';
 
+/**
+ * Component representing a post blurb on the blog landing page
+ *
+ * @component
+ * @param {Object} props
+ * @param {Object} props.data - Post data for the blog post
+ */
 function Blurb({ data }) {
   const {
     title,

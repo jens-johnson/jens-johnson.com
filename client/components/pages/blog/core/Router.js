@@ -7,6 +7,11 @@ import Post from '../post';
 import NoPostsFound from './NoPostsFound';
 import SideBar from '../sidebar';
 
+/**
+ * Router component that creates browser routing over the blog page
+ *
+ * @component
+ */
 function Router() {
   const { path } = useRouteMatch();
 

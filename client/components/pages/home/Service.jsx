@@ -3,9 +3,14 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode, faBusinessTime, faBook } from '@fortawesome/free-solid-svg-icons';
 
+/**
+ * Component representing the "Service" section on the home page
+ *
+ * @component
+ */
 class Service extends Component {
   render() {
-    return(
+    return (
       <section className="mh-service">
         <div className="container">
           <div className="row section-separator">

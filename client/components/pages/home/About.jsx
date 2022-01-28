@@ -6,9 +6,14 @@ import { faDownload, faLaptopCode, faDatabase, faUser, faProjectDiagram, faLight
 import aboutPortfolioShot from '~/assets/images/pages/home/about-portfolio-shot.jpg';
 import resume from '~/assets/files/Jens-Johnson_Resume.pdf';
 
+/**
+ * Component representing the "About" section on the home page
+ *
+ * @component
+ */
 class About extends Component {
   render() {
-    return(
+    return (
       <section className="mh-about" id="about">
         <div className="container">
           <div className="row section-separator">

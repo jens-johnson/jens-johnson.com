@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 
+/**
+ * Blog page header component
+ *
+ * @component
+ */
 class Header extends Component {
   render() {
-    return(
+    return (
       <section className="mh-home image-bg home-2-img" id="blog">
         <div className="img-foverlay img-color-overlay">
           <div className="container">

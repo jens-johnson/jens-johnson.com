@@ -16,6 +16,7 @@ function pad({ year, month, day }) {
 
 /**
  * Normalizes a date object using moment
+ *
  * @param {Date} date
  * @return {{month: number, year: number, day: number}}
  */

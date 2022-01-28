@@ -16,9 +16,14 @@ const { contact } = Config;
 const mailLink = `mailto:${contact.email}`;
 const phoneLink = `callto:${phone(contact.phone)}`;
 
+/**
+ * Component representing the landing section on the home page
+ *
+ * @component
+ */
 class Landing extends Component {
   render() {
-    return(
+    return (
       <section className="mh-home" id="home">
         <div className="home-ovimg">
           <div className="container">

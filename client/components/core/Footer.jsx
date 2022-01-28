@@ -6,6 +6,11 @@ import { faLocationArrow, faEnvelope, faPhone } from '@fortawesome/free-solid-sv
 import { SocialIcons } from '~/components/common/social';
 import { Contact } from '~/components/common/contact';
 
+/**
+ * Footer component with contact information and contact form
+ *
+ * @component
+ */
 class Footer extends Component {
   render() {
     return(
@@ -25,7 +30,7 @@ class Footer extends Component {
                       </div>
                       <div className="each-info">
                         <h4>Location</h4>
-                        <a href="">Portland, Oregon</a>
+                        <a href="">Denver, Colorado</a>
                       </div>
                     </div>
                   </div>

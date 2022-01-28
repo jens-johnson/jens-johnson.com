@@ -7,6 +7,11 @@ import Service from './Service';
 import Blog from './blog';
 import Experience from './Experience';
 
+/**
+ * Core home page component that creates navigation and home page sections
+ *
+ * @component
+ */
 class Home extends Component {
   render() {
     return(

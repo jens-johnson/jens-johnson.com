@@ -11,6 +11,14 @@ const {
   }
 } = Config;
 
+/**
+ * Social icons component that creates a list of social links
+ *
+ * @component
+ * @param {Object} props
+ * @param {Object} props.extraProperties - Optional extra HTML element attributes to include on the rendered component
+ * @param {Object} props.extraClasses - Optional extra classes to include on the rendered component
+ */
 class SocialIcons extends Component {
 
   constructor(props) {

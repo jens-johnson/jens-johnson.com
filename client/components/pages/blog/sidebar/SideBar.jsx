@@ -7,6 +7,11 @@ import Categories from './Categories';
 
 import jensAuthorPhoto from '~/assets/images/pages/blog/jens-author-photo.jpg';
 
+/**
+ * Component representing the blog sidebar
+ *
+ * @component
+ */
 class SideBar extends Component {
   render() {
     return(

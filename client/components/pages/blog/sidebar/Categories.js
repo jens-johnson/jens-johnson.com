@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { v4 as uuidV4 } from 'uuid';
 import blogClient from '~/client/blog';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTag } from '@fortawesome/free-solid-svg-icons';
+import { modifyQueryString } from '~/utils/blog/search';
 
+/**
+ * Component representing a list of blog categories (tags)
+ *
+ * @component
+ */
 function Categories() {
   const [ state, setState ] = useState({
     tags: []
@@ -23,7 +28,7 @@ function Categories() {
         {
           state.tags.map(tag => (
             <li key={tag.id}>
-              <a>
+              <a onClick={() => modifyQueryString('categories', tag.name)}>
                 <span><FontAwesomeIcon icon={faTag} /> <strong>{tag.name}</strong> ({tag.count})</span>
               </a>
             </li>
