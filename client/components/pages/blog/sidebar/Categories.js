@@ -22,7 +22,7 @@ function Categories() {
       <ul>
         {
           state.tags.map(tag => (
-            <li key={uuidV4()}>
+            <li key={tag.id}>
               <a>
                 <span><FontAwesomeIcon icon={faTag} /> <strong>{tag.name}</strong> ({tag.count})</span>
               </a>

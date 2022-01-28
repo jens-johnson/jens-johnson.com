@@ -45,3 +45,4 @@
 - [ ] Clean up `package-json`
   - [ ] Scripts
 - [ ] Verify Webpack build
+- [ ] API Authentication

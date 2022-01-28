@@ -1,63 +1,23 @@
 const BlogPost = require('./BlogPost');
+const transformers = require('./transformers');
 
 const {
   blog: {
-    maxTagsShown,
     maxFeaturedPostsShown
   }
 } = require('../../../config');
 
 /**
- * Returns all blog tags from the DB
+ * Returns all blog posts from the DB given a filtered request
  *
+ * @param {Object} request
  * @returns {Promise}
  */
-function getAllTags() {
-  return BlogPost.aggregate([
-    {
-      $unwind: {
-        path: '$tags'
-      }
-    },
-    {
-      '$group': {
-        '_id': '$tags',
-        "count": {
-          $sum: 1
-        }
-      }
-    }
-  ]).sort({ count: -1 }).limit(maxTagsShown);
-}
-
-/**
- * Returns all blog dates from the DB
- *
- * @returns {Promise}
- */
-function getAllDates() {
-  return BlogPost.aggregate([
-    {
-      '$group': {
-        '_id': {
-          year : {$year : "$date"}
-        },
-        "count": {
-          $sum: 1
-        }
-      }
-    }
-  ]).sort({ count: -1 })
-}
-
-/**
- * Returns all blog posts from the DB with an optional given filter
- *
- * @param {Object} filter
- * @returns {Promise}
- */
-function getAllPosts(filter) {
-  return BlogPost.find(filter).sort('-date');
+function getAllPosts(request) {
+  return Promise.resolve(request)
+    .then(transformers.toFilter)
+    .then(filter => BlogPost.find(filter).sort('-date'))
+    .then(posts => posts.map(transformers.fromModel));
 }
 
 /**
@@ -71,7 +31,8 @@ function getFeaturedPosts() {
       featuredPosts.length > 0
         ? featuredPosts
         : BlogPost.find().limit(maxFeaturedPostsShown).sort('-date')
-    );
+    )
+    .then(posts => posts.map(transformers.fromModel));
 }
 
 /**
@@ -83,12 +44,11 @@ function getFeaturedPosts() {
 function getPostByDate(date) {
   return BlogPost.findOne({
     date: { $gte: date }
-  });
+  })
+    .then(transformers.fromModel);
 }
 
 module.exports = {
-  getAllTags,
-  getAllDates,
   getAllPosts,
   getFeaturedPosts,
   getPostByDate

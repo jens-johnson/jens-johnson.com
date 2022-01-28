@@ -7,7 +7,7 @@ const BlogPost = mongoose.model('BlogPost', new mongoose.Schema({
   authors: [String],
   tags: [String]
 }, {
-  collection: 'BlogPosts'
+  collection: 'BlogPost'
 }));
 
 module.exports = BlogPost;

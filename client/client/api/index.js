@@ -25,7 +25,6 @@ function get(route, config=undefined) {
   return Promise.resolve(config)
     .then(configureRequest)
     .then(requestConfig => fetch(`/api/${route}`, requestConfig))
-    .then(res => res.json())
     .catch(error => {
       console.error(error);
       throw new ApiError('Unable to process request', route);
@@ -37,7 +36,6 @@ function post(route, request, config=undefined) {
     .then(configureRequest)
     .then(configurePostRequest)
     .then(requestConfig => fetch(`/api/${route}`, requestConfig))
-    .then(res => res.json())
     .catch(error => {
       console.error(error);
       throw new ApiError('Unable to process request', route);

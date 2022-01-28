@@ -1,4 +1,4 @@
-const blogPost = require('../../db/blog/blogPost');
+const { blogPost, blogTag, blogDate } = require('../../db/blog');
 const s3Service = require('../aws/s3');
 const { getLogger } = require('../../common/logging');
 const { DatabaseError } = require('../../common/errors');
@@ -14,33 +14,12 @@ const {
 const logger = getLogger('blog-service');
 
 /**
- *
- * @param {string|string[]} dates
- * @param {string|string[]} categories
- * @returns {Object}
- */
-function buildPostSearchFilter({ dates, categories }) {
-  let filter = {};
-  if (dates) {
-    let datesFilter = Array.isArray(dates) ? dates : [ dates ];
-    datesFilter = datesFilter.map(date => parseInt(date, 10));
-    filter['$expr'] = {
-      $in: [{ $year: "$date" }, datesFilter]
-    };
-  }
-  if (categories) {
-    filter['tags'] = Array.isArray(categories) ? { $in: categories } : categories;
-  }
-  return filter;
-}
-
-/**
  * Retrieves an array of all blog tags from the DB with their respective usage counts
  *
  * @returns {Promise}
  */
 function getAllBlogTags() {
-  return blogPost.getAllTags()
+  return blogTag.getAllTags()
     .then(tags => {
       logger.debug({
         event: 'getAllBlogTags',
@@ -65,7 +44,7 @@ function getAllBlogTags() {
  * @returns {Promise}
  */
 function getAllBlogDates() {
-  return blogPost.getAllDates()
+  return blogDate.getAllDates()
     .then(dates => {
       logger.debug({
         event: 'getAllBlogDates',
@@ -87,22 +66,17 @@ function getAllBlogDates() {
 /**
  * Retrieves all blog dates from the DB, optionally filtered by dates and tags
  *
- * @param {{ dates: string|string[], categories: string|string[] }} request
+ * @param {Object} request
  * @returns {Promise}
  */
 function getAllBlogPosts(request) {
-  return Promise.resolve(request)
-    .then(buildPostSearchFilter)
-    .then(blogPost.getAllPosts)
+  return blogPost.getAllPosts(request)
     .then(posts => {
       logger.debug({
         event: 'getAllBlogPosts',
         success: true,
         posts,
-        filter: {
-          dates,
-          categories
-        }
+        request
       });
       return posts;
     })
@@ -111,10 +85,7 @@ function getAllBlogPosts(request) {
         event: 'getAllBlogPosts',
         success: false,
         error,
-        filter: {
-          dates,
-          categories
-        }
+        request
       });
       throw new DatabaseError('Failed to get blog posts', 'BlogPost');
     });
@@ -187,7 +158,6 @@ function getBlogImage({ size, year, month, day }) {
       logger.debug({
         event: 'getBlogImage',
         success: true,
-        buffer,
         date: {
           year,
           month,

@@ -23,10 +23,14 @@ function getAllPostsRequest(request) {
  */
 function getPostRequest(request) {
   const {
-    path
+    params: {
+      year,
+      month,
+      day
+    }
   } = request;
   return {
-    date: new Date(path.split('/').slice(-1)).toISOString()
+    date: new Date(`${year}-${month}-${day}`).toISOString()
   };
 }
 
@@ -37,10 +41,13 @@ function getPostRequest(request) {
  */
 function getImageRequest(request) {
   const {
-    path
+    params: {
+      year,
+      month,
+      day,
+      size
+    }
   } = request;
-  const [ date, size ] = path.split('/').splice(-1).split('_');
-  const [ year, month, day ] = date.split('-');
   return {
     size,
     year,

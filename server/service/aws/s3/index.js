@@ -37,7 +37,8 @@ function getFile({ bucket, key }) {
         params,
         error
       });
-      throw new S3Error('Error retrieving file from S3', { bucket, key });
+      const code = error.code === 'NoSuchKey' ? 'ResourceNotFound' : undefined;
+      throw new S3Error('Error retrieving file from S3', { bucket, key }, code);
     });
 }
 

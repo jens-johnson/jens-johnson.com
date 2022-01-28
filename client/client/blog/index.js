@@ -3,6 +3,12 @@ import { generateImageUrlFromBuffer } from '~/utils/image';
 
 function getAllDates() {
   return api.get('blog/dates/all')
+    .then(response => {
+      if (response.status === 500) {
+        throw new Error('Received 500 server response');
+      }
+      return response.json();
+    })
     .then(({ dates }) => dates)
     .catch(error => {
       console.error('Failed to retrieve blog dates', error);
@@ -12,6 +18,12 @@ function getAllDates() {
 
 function getAllTags() {
   return api.get('blog/tags/all')
+    .then(response => {
+      if (response.status === 500) {
+        throw new Error('Received 500 server response');
+      }
+      return response.json();
+    })
     .then(({ tags }) => tags)
     .catch(error => {
       console.error('Failed to retrieve blog tags', error);
@@ -21,6 +33,12 @@ function getAllTags() {
 
 function getAllPosts(query) {
   return api.get(`blog/posts/all${query ? `?${query}`: ''}`)
+    .then(response => {
+      if (response.status === 500) {
+        throw new Error('Received 500 server response');
+      }
+      return response.json();
+    })
     .then(({ posts }) => posts)
     .catch(error => {
       console.error('Unable to fetch posts', error);
@@ -30,6 +48,12 @@ function getAllPosts(query) {
 
 function getFeaturedPosts() {
   return api.get('blog/posts/featured')
+    .then(response => {
+      if (response.status === 500) {
+        throw new Error('Received 500 server response');
+      }
+      return response.json();
+    })
     .then(({ posts }) => posts)
     .catch(error => {
       console.error('Failed to retrieve featured posts', error);
@@ -57,8 +81,14 @@ function getContent({ year, month, day }) {
 }
 
 function getImage({ year, month, day, size }) {
-  return api.get(`blog/posts/images/${year}-${month}-${day}_${size}`)
-    .then(({ buffer }) => generateImageUrlFromBuffer(buffer))
+  return api.get(`blog/posts/images/${year}-${month}-${day}-${size}`)
+    .then(response => {
+      if (response.status === 404) {
+        throw new Error('Image not found');
+      }
+      return response.json();
+    })
+    .then(({ data }) => generateImageUrlFromBuffer(data))
     .catch(error => {
       console.error('Unable to fetch image', error);
       return undefined;

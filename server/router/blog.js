@@ -18,7 +18,7 @@ router.route('/posts/featured')
 router.route('/posts/:year-:month-:day')
   .get(blog.getPost);
 
-router.route('/posts/images/:year-:month-:day_:size')
+router.route('/posts/images/:year-:month-:day-:size')
   .get(blog.getImage);
 
 module.exports = router;

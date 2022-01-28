@@ -11,7 +11,6 @@ const { getLogger, getLoggingMiddleware } = require('./common/logging');
 const { connect } = require('./db');
 
 const logger = getLogger('server');
-const applicationLogger = getLogger('express-server');
 const loggingMiddleware = getLoggingMiddleware('jens-johnson.com');
 const server = express();
 const port = normalizePort(process.env.PORT || defaultPort || 8080);

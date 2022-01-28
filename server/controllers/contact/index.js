@@ -1,4 +1,5 @@
 const contactService = require('../../service/contact');
+const { handleError } = require('../common/error');
 const parsers = require('./parsers');
 const validate = require('./validators');
 const { getLogger } = require('../../common/logging');
@@ -33,7 +34,7 @@ function createContactRequest(req, res) {
         success: false,
         error
       });
-      return res.status(500).send();
+      return handleError(error, res);
     });
 }
 

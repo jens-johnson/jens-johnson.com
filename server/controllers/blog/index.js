@@ -1,6 +1,7 @@
 const blogService = require('../../service/blog');
 const parsers = require('./parsers');
 const { getLogger } = require('../../common/logging');
+const { handleError } = require('../common/error');
 
 const logger = getLogger('blog-api');
 
@@ -20,7 +21,7 @@ function getAllTags(req, res) {
         success: true,
         tags
       });
-      return res.status(200).send({ tags });
+      return res.status(200).send({ message: 'Blog tags retrieved', tags });
     })
     .catch(error => {
       logger.error({
@@ -29,7 +30,7 @@ function getAllTags(req, res) {
         success: false,
         error
       });
-      res.status(404).send({ tags: [] });
+      return handleError(error, res);
     });
 }
 
@@ -49,7 +50,7 @@ function getAllDates(req, res) {
         success: true,
         dates
       });
-      return res.status(200).send({ dates });
+      return res.status(200).send({ message: 'Blog dates retrieved', dates });
     })
     .catch(error => {
       logger.error({
@@ -58,7 +59,7 @@ function getAllDates(req, res) {
         success: false,
         error
       });
-      return res.status(404).send({ dates: [] });
+      handleError(error, res);
     });
 }
 
@@ -80,7 +81,7 @@ function getAllPosts(req, res) {
         success: true,
         posts
       });
-      return res.status(200).send({ posts });
+      return res.status(200).send({ message: 'Blog posts successfully retrieved', posts });
     })
     .catch(error => {
       logger.error({
@@ -89,7 +90,7 @@ function getAllPosts(req, res) {
         success: false,
         error
       });
-      return res.status(404).send({ posts: [] });
+      return handleError(error, res);
     });
 }
 
@@ -109,7 +110,7 @@ function getFeaturedPosts(req, res) {
         success: true,
         featuredPosts
       });
-      return res.status(200).send({ posts: featuredPosts });
+      return res.status(200).send({ message: 'Featured posts retrieved successfully', posts: featuredPosts });
     }).catch(error => {
       logger.error({
         message: 'Failed to retrieve featured blog posts',
@@ -148,7 +149,7 @@ function getPost(req, res) {
         success: false,
         error
       });
-      return res.status(404).send({ post: null });
+      return handleError(error, res);
     });
 }
 
@@ -163,14 +164,13 @@ function getImage(req, res) {
   return Promise.resolve(req)
     .then(parsers.getImageRequest)
     .then(blogService.getBlogImage)
-    .then(buffer => {
+    .then(data => {
       logger.info({
         message: 'Retrieved blog image',
         event: 'getImage',
-        success: true,
-        buffer
+        success: true
       });
-      return res.status(200).send({ buffer });
+      return res.status(200).send({ message: "Successfully retrieved image", data });
     })
     .catch(error => {
       logger.error({
@@ -179,7 +179,7 @@ function getImage(req, res) {
         success: false,
         error
       });
-      return res.status(404).send({ buffer: null });
+      return handleError(error, res);
     })
 }
 
