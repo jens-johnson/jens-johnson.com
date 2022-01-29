@@ -7,6 +7,7 @@
 
 The website is currently still in pre-release (0.5.0) as I work to get some last functional pieces going. If all
 goes well (🤞🏻), I hope to release v1 very soon. Stay tuned...
+
 ---
 
 ## Introduction
