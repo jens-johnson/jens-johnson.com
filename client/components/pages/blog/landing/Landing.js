@@ -5,7 +5,7 @@ import { parseQueryString } from '~/utils/blog/search';
 
 import { Pagination } from '~/components/common/pagination';
 import Blurb from './Blurb';
-import NoPostsFound from './NoPostsFound';
+import NoPostsFound from '~/components/pages/blog/core/NoPostsFound';
 
 import Config from '~/config';
 
