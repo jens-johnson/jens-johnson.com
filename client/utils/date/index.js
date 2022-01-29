@@ -21,10 +21,13 @@ function pad({ year, month, day }) {
  * @return {{month: number, year: number, day: number}}
  */
 function normalize(date) {
-  const { years: year, months, date: day } = moment.utc(date).toObject();
+  const parsed = new Date(date);
+  const day = parsed.getDate();
+  const month = parsed.getMonth() + 1;
+  const year = parsed.getFullYear();
   return {
     year,
-    month: months + 1,
+    month,
     day
   };
 }

@@ -22,9 +22,15 @@ class Service extends Component {
                 <FontAwesomeIcon icon={faCode} />
                 <h3>Software Engineering</h3>
                 <p>
-                  I'm currently working as a software engineer with Nike. Software engineering has allowed me to explore my passions of technology
-                  and innovation through frameworks and patterns that utilize critical thinking, collaborative problem solving, and design solutioning - all
-                  while giving me the experience of working on a variety of projects, from distributed cloud applications to automated data warehousing solutions.
+                  As a software engineer, I love the ability to explore my passions of technology and innovation through critical thinking,
+                  collaborative problem solving, and solution design. This career has given me the experience of being able to work on a
+                  variety of projects both inside and outside of my career, from enterprise data platforms, to serverless application development,
+                  to user experience design, and so much more (including this website!)
+                  <br /><br/>
+
+                  I love to cultivate this passion within my role at Nike, as well as through side projects that allow me to explore areas of software
+                  engineering that I'm interested in. Whether its building a Strava API client to track my running data, creating a React Native application for
+                  my iPhone, or just poking around with a new language, engineering allows me to apply creative problem solving to unique problems.
                 </p>
               </div>
             </div>

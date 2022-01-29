@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { v4 as uuidV4 } from 'uuid';
 import blogClient from '~/client/blog';
 
 import Button from 'react-bootstrap/Button';
@@ -28,19 +27,34 @@ function Blog() {
     <section className="mh-blog" id="blog">
       <div className="container">
         <div className="row section-seperator">
-          <div className="col-sm-12 section-title wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-            <h3>Featured Posts</h3>
-          </div>
           {
-            state.posts.map(post => (
-              <Blurb key={uuidV4()} data={post} />
-            ))
+            state.posts.length > 0
+            ? (
+                <>
+                  <div className="col-sm-12 section-title wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
+                    <h3>Featured Blog Posts</h3>
+                  </div>
+                {
+                  state.posts.map(post => (
+                    <Blurb key={post.id} data={post} />
+                  ))
+                }
+                  <div className="col-sm-12 blog-pointer wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.8s">
+                    <a className="blog-redirect" href="/blog"><span>Read more <FontAwesomeIcon icon={faRss} /></span></a>
+                  </div>
+                </>
+              )
+            : (
+                <>
+                <div className="col-sm-12 section-title wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
+                  <h3>Blog</h3>
+                  <div className="col-sm-12 blog-pointer wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.8s">
+                    <a className="blog-redirect" href="/blog"><span>Check out the Blog <FontAwesomeIcon icon={faRss} /></span></a>
+                  </div>
+                </div>
+                </>
+              )
           }
-          <div className="col-sm-12 blog-pointer wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.8s">
-            <Button block onClick={() => { window.open('/blog'); }}>
-              <h3>Read more <FontAwesomeIcon icon={faRss} /></h3>
-            </Button>
-          </div>
         </div>
       </div>
     </section>

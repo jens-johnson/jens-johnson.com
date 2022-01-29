@@ -16,6 +16,7 @@ function Blurb({ data }) {
     date,
     authors
   } = data;
+  console.log(date)
   const { year, month, day } = pad(normalize(date));
   const [ state, setState ] = useState({
     title,

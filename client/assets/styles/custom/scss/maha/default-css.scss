@@ -658,8 +658,7 @@ ul {
 }
 
 .img-overlay {
-    background-image: url("/assets/images/footer-bg.png");
-    background-size: cover;
+    background-image: url("~/assets/images/core/placeholder/footer-bg.png");
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0 auto;
@@ -675,17 +674,17 @@ ul {
 }
 
 .home-2-img {
-    background-image: url("client/assets/images/pages/blog/blog-header-img.jpg");
+    background-image: url("~/assets/images/pages/blog/blog-header-img.jpg");
 }
 
 .featured-img-one {
-    background-image: url("/assets/images/home-bg-img.jpg");
+    background-image: url("~/assets/images/core/placeholder/home-bg-img.jpg");
 }
 .featured-img-two {
-    background-image: url("/assets/images/extra-feature-bg.jpg");
+    background-image: url("~/assets/images/core/placeholder/extra-feature-bg.jpg");
 }
 .map-image {
-    background-image: url("client/assets/images/core/map-color-overlay.png");
+    background-image: url("~/assets/images/core/placeholder/map-color-overlay.png");
 }
 
 

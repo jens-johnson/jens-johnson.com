@@ -36,7 +36,7 @@ class Landing extends Component {
                   <h2 className="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Jens Johnson</h2>
                   <h4 className="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                     <Typewriter options={{
-                      strings: ['Software Engineer', 'Project Manager', 'Avid Learner'],
+                      strings: ['Software Engineer', 'Avid Learner', 'Innovator'],
                       autoStart: true,
                       loop: true,
                     }} />

@@ -1,4 +1,4 @@
-/*-------------
+/*------------- 
 [Table of contents]
 
 [ DEFULT INDEX NUMBER ]
@@ -21,15 +21,15 @@
 -------------------------------------------------------------------*/
 /*------------------------------------------------------------------
 [ Color codes ]
-
+    
     [ Text and Background Color ]
-        Main color 1:       #1c93e5
-        Main color 2:       #009688
+        Main color 1:       #1c93e5     
+        Main color 2:       #009688      
         Main color 3:       #9c27b0
-        Main color 4:       #ff4081
-        Background 1:       #FFFFFF
-        Background 2:       #F6F6F6
-        Shadow color:       #000000;
+        Main color 4:       #ff4081      
+        Background 1:       #FFFFFF            
+        Background 2:       #F6F6F6           
+        Shadow color:       #000000;            
 
 -------------------------------------------------------------------*/
 /*------------------------------------------------------------------
@@ -56,7 +56,7 @@
         font-size: 20px;
         font-weight: 600;
 
-    p:
+    p:  
         font-size: 18px;
         line-height: 30px;
 
@@ -534,7 +534,6 @@ ul {
 .img-overlay {
   background-image: url("~/assets/images/core/placeholder/footer-bg.png");
   background-size: cover;
-  background-size: cover;
   background-repeat: no-repeat;
   margin: 0 auto;
   background-position: center center; }
@@ -556,7 +555,7 @@ ul {
   background-image: url("~/assets/images/core/placeholder/extra-feature-bg.jpg"); }
 
 .map-image {
-  background-image: url("~/assets/images/core/map-color-overlay.png"); }
+  background-image: url("~/assets/images/core/placeholder/map-color-overlay.png"); }
 
 .mt-30 {
   margin-top: 30px; }

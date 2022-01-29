@@ -45,7 +45,7 @@ function getPostByDate(date) {
   return BlogPost.findOne({
     date: { $gte: date }
   })
-    .then(transformers.fromModel);
+    .then(transformers.fromModel)
 }
 
 module.exports = {

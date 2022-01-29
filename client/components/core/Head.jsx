@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import { Helmet } from 'react-helmet';
 
-import jQuery from 'jquery';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '~/assets/scripts/plugins/owl.carousel.min.js';
 import '~/assets/scripts/plugins/validator.min.js';
@@ -10,14 +9,18 @@ import '~/assets/scripts/plugins/jquery.mixitup.min.js';
 import '~/assets/scripts/plugins/circle-progress.js';
 import '~/assets/scripts/plugins/jquery.nav.js';
 import '~/assets/scripts/plugins/isotope.pkgd.js';
+
 import '~/assets/scripts/custom/main.js';
+
 import '~/assets/styles/plugins/animate.css';
 import '~/assets/styles/plugins/owl/owl.carousel.min.css';
 import '~/assets/styles/plugins/owl/owl.theme.default.css';
 import '~/assets/styles/plugins/fancybox/jquery.fancybox-1.3.4.css';
-import '~/assets/styles/custom/css/styles.css';
-import '~/assets/styles/custom/css/responsive.css';
-import '~/assets/styles/custom/css/green.css';
+
+import '~/assets/styles/custom/css/maha/styles.css';
+import '~/assets/styles/custom/css/maha/responsive.css';
+import '~/assets/styles/custom/css/maha/green.css';
+import '~/assets/styles/custom/css/custom.css';
 
 /**
  * Header component that creates a page header using react-helmet, injecting script and css dependencies

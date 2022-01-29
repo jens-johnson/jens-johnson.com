@@ -16,7 +16,7 @@ class NoPostsFound extends Component {
           <h1>Awkward...</h1>
           <p>
             It appears there aren't any posts here.<br />
-            Let's go back to the <a href="/blog">blog</a> to look again.
+            Let's go back <a href="/">home</a>.
           </p>
         </div>
       </div>

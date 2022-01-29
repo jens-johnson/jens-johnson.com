@@ -1,0 +1,15 @@
+@import "maha/variable";
+
+.blog-pointer {
+  .blog-redirect {
+    span {
+      color: $main-color;
+      border: 1px solid $main-color;
+      padding: 4px;
+      border-radius: 2px;
+      &:hover {
+        opacity: 50%;
+      }
+    }
+  }
+}
