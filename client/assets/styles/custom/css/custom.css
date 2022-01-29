@@ -1,0 +1,12 @@
+/*
+================
+ VARIABLES
+================
+*/
+.blog-pointer .blog-redirect span {
+  color: #4caf50;
+  border: 1px solid #4caf50;
+  padding: 4px;
+  border-radius: 2px; }
+  .blog-pointer .blog-redirect span:hover {
+    opacity: 50%; }

@@ -1,0 +1,373 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: jens-johnson.com API
+  description: An API for client-server interactions for jens-johnson.com
+
+paths:
+  /api/blog/tags/all:
+    get:
+      description: Get blog tags (categories) and their counts
+      tags:
+        - Blog
+      responses:
+        '200':
+          description: Blog tag retrieval successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  tags:
+                    type: array
+                    description: An array of blog tags and their respective counts
+                    items:
+                      $ref: '#/components/schemas/BlogTag'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /api/blog/dates/all:
+    get:
+      description: Get blog dates (by year) and their respective counts
+      tags:
+        - Blog
+      responses:
+        '200':
+          description: Blog date retrieval successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  dates:
+                    type: array
+                    description: An array of blog dates and their respective counts
+                    items:
+                      $ref: '#/components/schemas/BlogDate'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /api/blog/posts/all:
+    get:
+      description: Get all blog posts
+      tags:
+        - Blog
+      parameters:
+        - in: query
+          name: dates
+          description: Dates to filter posts by
+          style: form
+          schema:
+            type: array
+            items:
+              type: string
+        - in: query
+          name: categories
+          description: Categories (tags) to filter posts by
+          style: form
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Blog post retrieval successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  posts:
+                    type: array
+                    description: An array of blog posts
+                    items:
+                      $ref: '#/components/schemas/BlogPost'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /api/blog/posts/featured:
+    get:
+      description: Get featured blog posts
+      tags:
+        - Blog
+      responses:
+        '200':
+          description: Featured blog post retrieval successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  posts:
+                    type: array
+                    description: An array of blog posts
+                    items:
+                      $ref: '#/components/schemas/BlogPost'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /api/blog/posts/{year}-${month}-{day}:
+    get:
+      description: Get a blog post by date
+      tags:
+        - Blog
+      parameters:
+        - in: path
+          name: year
+          description: Blog post year
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: month
+          description: Blog post month
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: day
+          description: Blog post day
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Blog post retrieval successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  post:
+                    $ref: '#/components/schemas/BlogPost'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /api/blog/posts/{year}-${month}-{day}-{size}:
+    get:
+      description: Get a blog image post by date and size
+      tags:
+        - Blog
+      parameters:
+        - in: path
+          name: year
+          description: Blog post year
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: month
+          description: Blog post month
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: day
+          description: Blog post day
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: size
+          description: Blog post size
+          required: true
+          schema:
+            type: string
+            enum:
+              - small
+              - large
+      responses:
+        '200':
+          description: Blog post image retrieval successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: object
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /api/contact/submit:
+    post:
+      description: Submit a contact request
+      tags:
+        - Contact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/ContactRecipient'
+                - type: object
+                  properties:
+                    emailListOptIn:
+                      type: boolean
+                      description: Indicating whether the contact request would like to opt-in with their email
+      responses:
+        '201':
+          description: Contact request submitted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  recipient:
+                    $ref: '#/components/schemas/ContactRecipient'
+                  message:
+                    $ref: '#/components/schemas/ContactMessage'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+components:
+  schemas:
+    BlogDate:
+      type: object
+      properties:
+        id:
+          type: string
+          description: UUID representing the blog date
+          format: uuid
+        year:
+          type: string
+          description: The year representing the blog date
+          example: 2022
+        count:
+          type: number
+          description: A count describing the frequency of posts associated with the blog date
+    BlogTag:
+      type: object
+      properties:
+        id:
+          type: string
+          description: UUID representing the blog tag
+          format: uuid
+        name:
+          type: string
+          description: The name of the tag
+          example: programming
+        count:
+          type: number
+          description: A count describing the frequency that the tag has been used throughout the blog
+    BlogPost:
+      type: object
+      properties:
+        id:
+          type: string
+          description: UUID representing the blog post
+          format: uuid
+        title:
+          type: string
+          description: The title of the blog post
+          example: My first blog post
+        description:
+          type: string
+          description: A brief description of the blog post
+          example: This post is about my first blog
+        authors:
+          type: array
+          description: The names of the blog post authors
+          items:
+            type: string
+            description: The author's first and last names
+            example: John Doe
+        tags:
+          type: array
+          description: An array of tags associated with the post
+          items:
+            type: string
+            description: The name of the tag
+            example: programming
+    ContactRecipient:
+      type: object
+      properties:
+        first:
+          type: string
+          description: Recipient's first name
+          example: John
+        last:
+          type: string
+          description: Recipient's last name
+          example: Doe
+        email:
+          type: string
+          description: Recipient's email
+          example: john.doe@gmail.com
+    ContactMessage:
+      type: object
+      properties:
+        first:
+          type: string
+          description: Contacter's first name
+          example: John
+        last:
+          type: string
+          description: Contacter's last name
+          example: Doe
+        email:
+          type: string
+          description: Contacter's email
+          example: john.doe@gmail.com
+        message:
+          type: string
+          description: Contacter's message
+          example: Hi, I'm John Doe. Let's connect
+  responses:
+    InternalServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                default: Internal server error
+    ResourceNotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                default: Resource not found
+    ValidationError:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                default: Invalid request
+              # See: jsonschema validation errors (https://github.com/tdegrunt/jsonschema)
+              errors:
+                type: object
+                properties:
+                  path:
+                    type: string
+                    description: The path of the request resource generating a validation error
+                  name:
+                    type: string
+                    description: The name of the request resource generating a validation error
+                  argument:
+                    type: string
+                    description: Information about the invalid resource
+                  message:
+                    type: string
+                    description: Readable message about the invalid resource

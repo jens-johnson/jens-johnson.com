@@ -1,41 +1,44 @@
 import React, { Component } from 'react';
-import { Navigation } from '~/components/core/misc';
-import * as Sections from './sections';
+
+import { Navigation } from '~/components/common/navigation';
+import Landing from './Landing';
+import About from './About';
+import Service from './Service';
+import Blog from './blog';
+import Experience from './Experience';
 
 /**
- * Home page component
+ * Core home page component that creates navigation and home page sections
  *
  * @component
- * @description Component representing home page. Constructs a navbar and several sections on the page.
- *
- **/
+ */
 class Home extends Component {
-    render() {
-        return(
-            <>
-                <Navigation sections={{
-                    'About': {
-                        href: '#about',
-                        order: 1,
-                    },
-                    'Blog': {
-                        href: '#blog',
-                        order: 2
-                    },
-                    'Experience': {
-                        href: '#experience',
-                        order: 3
-                    }
-                }}
-                />
-                <Sections.Landing />
-                <Sections.About />
-                <Sections.Service />
-                <Sections.Blog />
-                <Sections.Experience />
-            </>
-        );
-    }
+  render() {
+    return(
+      <>
+        <Navigation sections={{
+          'About': {
+            href: '#about',
+            order: 1,
+          },
+          'Blog': {
+            href: '#blog',
+            order: 2
+          },
+          'Experience': {
+            href: '#experience',
+            order: 3
+          }
+        }}
+        />
+        <Landing />
+        <About />
+        <Service />
+        <Blog />
+        <Experience />
+      </>
+    );
+  }
 }
 
 export default Home;

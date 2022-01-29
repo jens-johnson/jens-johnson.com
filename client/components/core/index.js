@@ -1,11 +1,9 @@
-import ApplicationRouter from './ApplicationRouter';
 import Footer from './Footer';
 import Head from './Head';
-import * as Misc from './misc';
+import SectionLoader from './SectionLoader';
 
 export {
-    ApplicationRouter,
-    Footer,
-    Head,
-    Misc
+  Footer,
+  Head,
+  SectionLoader
 };

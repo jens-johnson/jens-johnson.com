@@ -1,7 +1,7 @@
-import * as Core from './core';
-import * as Pages from './pages';
+import Application from './Application';
+import { Head } from './core';
 
 export {
-    Core,
-    Pages
+  Application,
+  Head
 };

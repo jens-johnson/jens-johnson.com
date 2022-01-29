@@ -1,18 +1,22 @@
 {
-  "reactPresets": {
-    "renderDestinations": {
-      "application": "Anchor-Application",
-      "head": "Anchor-Head"
+  "react": {
+    "render": {
+      "anchors": {
+        "application": "Anchor-Application",
+        "head": "Anchor-Head"
+      }
     }
   },
   "api": {
-    "headers": {
-      "content-type": "application/json"
+    "requests": {
+      "headers": {
+        "content-type": "application/json"
+      }
     }
   },
-  "siteSettings": {
-    "navigation": {
-      "defaultNavSections": {
+  "navigation": {
+    "sections": {
+      "default": {
         "Home": {
           "href": "#home",
           "order": 0
@@ -22,12 +26,9 @@
           "order": 10
         }
       }
-    },
-    "blog": {
-      "postsPerPage": 8
     }
   },
-  "contactInformation": {
+  "contact": {
     "email": "jens@jens-johnson.com",
     "phone": "+1 (303)-918-7742",
     "social": {
@@ -39,7 +40,7 @@
   },
   "blog": {
     "imageRoot": "assets/images/pages/blog/posts",
-    "pageSettings": {
+    "pagination": {
       "postsPerPage": 8
     }
   }

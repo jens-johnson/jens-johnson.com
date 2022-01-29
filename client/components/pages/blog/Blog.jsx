@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Navigation } from '~/components/core/misc';
-import { Header, Router } from './sections';
+
+import { Navigation } from '~/components/common/navigation';
+import { Header, Router } from './core';
 
 /**
- * Blog component
+ * Core blog page component that constructs navigation/header and blog page routing
  *
  * @component
- * @description Blog page component. Initializes navigation bar, blog header, and blog router.
  */
 class Blog extends Component {
   render() {
