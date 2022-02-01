@@ -1,2 +1,9 @@
+logging:
+  destination:
+    directory: ~/logs/
+    levels:
+      info: info.log
+      error: error.log
+      debug: debug.log
 server:
   defaultPort: 80

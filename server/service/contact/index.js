@@ -1,6 +1,5 @@
-const { emailRecipient, contactMessage } = require('../../db/contact');
 const { getLogger } = require('../../common/logging');
-const { DatabaseError, DATABASE_ERROR_CODES } = require('../../common/errors');
+const { emailRecipient, contactMessage } = require('../../db/contact');
 
 const logger = getLogger('contact-service');
 
@@ -30,11 +29,7 @@ function persistEmailRecipient(request) {
         request,
         error
       });
-      throw new DatabaseError('Failed to persist email recipient', {
-        resource: 'EmailRecipient',
-        code: DATABASE_ERROR_CODES.PERSIST_ITEM,
-        error
-      });
+      throw error;
     });
 }
 
@@ -63,11 +58,7 @@ function createContactMessage(request) {
         request,
         error
       });
-      throw new DatabaseError('Failed to create contact message', {
-        resource: 'ContactMessage',
-        code: DATABASE_ERROR_CODES.CREATE_ITEM,
-        error
-      });
+      throw error;
     });
 }
 
@@ -78,17 +69,8 @@ function createContactMessage(request) {
  * @returns {Promise}
  */
 function createContactRequest(request) {
-  let emailRecipientRequest, contactMessageRequest;
-  if (request.emailListOptIn) {
-    emailRecipientRequest = persistEmailRecipient(request);
-  } else {
-    emailRecipientRequest = Promise.resolve(undefined);
-  }
-  if (request.message) {
-    contactMessageRequest = createContactMessage(request);
-  } else {
-    contactMessageRequest = Promise.resolve(undefined);
-  }
+  const emailRecipientRequest = request.emailListOptIn ? persistEmailRecipient(request) : Promise.resolve(undefined);
+  const contactMessageRequest = request.message ? createContactMessage(request) : Promise.resolve(undefined);
   return Promise.all([ emailRecipientRequest, contactMessageRequest ])
     .then(([ persistedRecipient, savedMessage ]) => {
       logger.debug({

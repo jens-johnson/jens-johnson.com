@@ -1,7 +1,6 @@
+const { getLogger } = require('../../common/logging');
 const { blogPost, blogTag, blogDate } = require('../../db/blog');
 const s3Service = require('../aws/s3');
-const { getLogger } = require('../../common/logging');
-const { DatabaseError, DATABASE_ERROR_CODES } = require('../../common/errors');
 
 const {
   aws: {
@@ -34,11 +33,7 @@ function getAllBlogTags() {
         success: false,
         error
       });
-      throw new DatabaseError('Failed to get blog tags', {
-        resource: 'BlogPost',
-        code: DATABASE_ERROR_CODES.GET_ITEM,
-        error
-      });
+      throw error;
     });
 }
 
@@ -63,11 +58,7 @@ function getAllBlogDates() {
         success: false,
         error
       });
-      throw new DatabaseError('Failed to get blog dates', {
-        resource: 'BlogPost',
-        code: DATABASE_ERROR_CODES.GET_ITEM,
-        error
-      });
+      throw error;
     });
 }
 
@@ -95,11 +86,7 @@ function getAllBlogPosts(request) {
         error,
         request
       });
-      throw new DatabaseError('Failed to get blog posts', {
-        resource: 'BlogPost',
-        code: DATABASE_ERROR_CODES.GET_ITEM,
-        error
-      });
+      throw error;
     });
 }
 
@@ -117,17 +104,14 @@ function getFeaturedBlogPosts() {
         featuredPosts
       });
       return featuredPosts;
-    }).catch(error => {
+    })
+    .catch(error => {
       logger.error({
         event: 'getFeaturedBlogPosts',
         success: false,
         error
       });
-      throw new DatabaseError('Failed to get featured blog posts', {
-        resource: 'BlogPost',
-        code: DATABASE_ERROR_CODES.GET_ITEM,
-        error
-      });
+      throw error;
     });
 }
 
@@ -155,11 +139,7 @@ function getBlogPost({ date }) {
         error,
         date
       });
-      throw new DatabaseError('Failed to get blog post', {
-        resource: 'BlogPost',
-        code: DATABASE_ERROR_CODES.GET_ITEM,
-        error
-      });
+      throw error;
     });
 }
 

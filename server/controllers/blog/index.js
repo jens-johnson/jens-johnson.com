@@ -1,7 +1,7 @@
-const blogService = require('../../service/blog');
-const parsers = require('./parsers');
 const { getLogger } = require('../../common/logging');
 const { handleError } = require('../common/error');
+const blogService = require('../../service/blog');
+const parsers = require('./parsers');
 
 const logger = getLogger('blog-api');
 
@@ -111,14 +111,15 @@ function getFeaturedPosts(req, res) {
         featuredPosts
       });
       return res.status(200).send({ message: 'Featured posts retrieved successfully', posts: featuredPosts });
-    }).catch(error => {
+    })
+    .catch(error => {
       logger.error({
         message: 'Failed to retrieve featured blog posts',
         event: 'getFeaturedPosts',
         success: false,
         error
       });
-      return res.status(404).send({ posts: [] });
+      return handleError(req, res);
     });
 }
 

@@ -1,7 +1,7 @@
 /**
  *
  * @param {Object} request
- * @returns {{first:string,last:string,email:string,message:string}}
+ * @returns {{ first: string, last: string, email: string, message: string }}
  */
 function toModel(request) {
   const {

@@ -19,7 +19,7 @@ function getAllPostsRequest(request) {
 /**
  *
  * @param {Object} request
- * @returns {{date: string}}
+ * @returns {{ date: string }}
  */
 function getPostRequest(request) {
   const {
@@ -37,7 +37,7 @@ function getPostRequest(request) {
 /**
  *
  * @param {Object} request
- * @returns {{size: string, month: string, year: string, day: string}}
+ * @returns {{ size: string, month: string, year: string, day: string }}
  */
 function getImageRequest(request) {
   const {
@@ -56,26 +56,8 @@ function getImageRequest(request) {
   };
 }
 
-/**
- *
- * @param {Object} request
- * @returns {{month: string, year: string, day: string}}
- */
-function getContentRequest(request) {
-  const {
-    path
-  } = request;
-  const [ year, month, day ] = path.split('/').splice(-1).split('-');
-  return {
-    year,
-    month,
-    day
-  };
-}
-
 module.exports = {
   getAllPostsRequest,
   getPostRequest,
-  getImageRequest,
-  getContentRequest
+  getImageRequest
 };

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-const { getLogger } = require('../common/logging');
+
 const { DatabaseError, DATABASE_ERROR_CODES } = require('../common/errors');
+const { getLogger } = require('../common/logging');
 
 const {
   mongoose: {
@@ -11,8 +12,6 @@ const {
 } = require('../config');
 
 const logger = getLogger('mongoose-client');
-
-const MONGOOSE_URI = process.env.MONGODB_URI;
 
 mongoose.connection.on('open', () => {
   logger.info({
@@ -42,8 +41,14 @@ mongoose.connection.on('error', error => {
  * @param {Object} options - Optional configuration options
  */
 function connect(options=undefined) {
+  const connectionURI = process.env.MONGOOSE_URI;
+  if (!connectionURI) {
+    throw new DatabaseError('Failed to establish connection - no connection string provided', {
+      code: DATABASE_ERROR_CODES.CONNECTION_ERROR
+    });
+  }
   // noinspection JSVoidFunctionReturnValueUsed,JSCheckFunctionSignatures,JSUnresolvedFunction
-  return mongoose.connect(MONGOOSE_URI, { ...defaultConnectionConfig, ...options })
+  return mongoose.connect(connectionURI, { ...defaultConnectionConfig, ...options })
     .then(() => {
       logger.debug({
         event: 'connect',
