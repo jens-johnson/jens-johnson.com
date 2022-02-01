@@ -358,7 +358,7 @@ file. Again, this is covered in further depth in the [setup](setup) docs.
 
 ### Node
 
-Node runs the Express server using an executable in `bin/www`:
+Node runs the Express server using a core module in `bin/server/www`:
 ```javascript
 #!/usr/bin/env node
 

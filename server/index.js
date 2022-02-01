@@ -6,29 +6,34 @@ const express = require('express');
 const path = require('path');
 const router = require('./router');
 const { normalizePort } = require('./utilities');
-const { defaultPort } = require('./config');
 const { getLogger, getLoggingMiddleware } = require('./common/logging');
-const { connect } = require('./db');
+const db = require('./db');
+
+const {
+  server: {
+    defaultPort
+  }
+} = require('./config');
 
 const logger = getLogger('server');
 const loggingMiddleware = getLoggingMiddleware('jens-johnson.com');
+const PORT = normalizePort(process.env.PORT || defaultPort || 8080);
 const server = express();
-const port = normalizePort(process.env.PORT || defaultPort || 8080);
 
-connect()
-  .then(success => {
-    if (success) {
-      logger.info({
-        message: 'Server established DB connection',
-      });
-    } else {
-      logger.error({
-        message: 'Server failed to establish connection to DB'
-      });
-    }
+db.connect()
+  .then(() => {
+    logger.info({
+      message: 'Server established database connection'
+    });
+  })
+  .catch((error) => {
+    logger.error({
+      message: 'Server failed to establish database connection',
+      error
+    });
   });
 
-server.set('port', port);
+server.set('port', PORT);
 
 server.use(loggingMiddleware);
 server.use(cors());
@@ -40,6 +45,4 @@ server.use('/api', router);
 server.use(express.static(path.resolve(__dirname, '../dist')));
 server.get('*', (_, res) => res.sendFile(path.resolve(__dirname, '../dist/index.html')));
 
-module.exports = {
-  server
-};
+module.exports = server;

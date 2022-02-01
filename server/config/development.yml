@@ -3,3 +3,5 @@ logging:
     destination: 1
     transport:
       target: 'pino-pretty'
+server:
+  defaultPort: 8080
