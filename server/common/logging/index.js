@@ -1,21 +1,24 @@
 const pino = require('pino');
 const expressPino = require('express-pino-logger');
 
-const {
-  logging: {
-    config: defaultConfig
-  }
-} = require('../../config');
+const transports = require('./transports');
+
+const transport = { development: transports.local, production: transports.file }[process.env.environment || 'development'];
 
 /**
  * Returns a pino logger with the given namespace
  *
- * @param {string} name
+ * @param {string} name - A namespace for the logger
+ * @param {Object} options - Optional additional configuration
  * @returns {*}
  */
-function getLogger(name) {
+function getLogger(name, options=undefined) {
   const { logger } = expressPino({
-    logger: pino({ ...defaultConfig, name })
+    logger: pino({
+      transport,
+      ...options,
+      name
+    })
   });
   return logger;
 }
@@ -23,12 +26,17 @@ function getLogger(name) {
 /**
  * Returns logging middleware with the given namespace
  *
- * @param {string} name
+ * @param {string} name - A namespace for the logger
+ * @param {Object} options - Optional additional configuration
  * @returns {*}
  */
-function getLoggingMiddleware(name) {
+function getLoggingMiddleware(name, options=undefined) {
   return expressPino({
-    logger: pino({ ...defaultConfig, name })
+    logger: pino({
+      transport,
+      ...options,
+      name
+    })
   });
 }
 

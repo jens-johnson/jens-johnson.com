@@ -1,7 +1,10 @@
 logging:
-  config:
-    destination: 1
-    transport:
-      target: 'pino-pretty'
+  destination:
+    directory: /Users/JJo175/Development/Personal/jens-johnson.com/logs/
+    levels:
+      info: info.log
+      error: error.log
+      debug: debug.log
 server:
-  defaultPort: 8080
+  port:
+    default: 8080

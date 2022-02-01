@@ -1,6 +1,6 @@
 # [jens-johnson.com](https://www.jens-johnson.com)
 
-**v0.5.0 💻** | **[🔗Documentation](docs)** | **[📜Changelog](docs/miscellaneous/changelog.md)** | **[🌎Site](https://www.jens-johnson.com)**
+**v0.6.0 💻** | **[🔗Documentation](docs)** | **[📜Changelog](docs/miscellaneous/changelog.md)** | **[🌎Site](https://www.jens-johnson.com)**
 
 ---
 **CURRENT STATUS [2022-01-28]**

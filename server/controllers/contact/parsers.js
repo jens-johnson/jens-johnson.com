@@ -1,7 +1,7 @@
 /**
  *
  * @param {Object} request
- * @returns {{emailListOptIn: boolean, last: string, message: string, first: string, email: string}}
+ * @returns {{ emailListOptIn: boolean, last: string, message: string, first: string, email: string }}
  */
 function createContactRequest(request) {
   const {

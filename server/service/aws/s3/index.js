@@ -1,6 +1,6 @@
-const { s3 } = require('../../../common/aws');
-const { S3Error } = require('../../../common/errors');
+const { S3Error, S3_ERROR_CODES } = require('../../../common/errors');
 const { getLogger } = require('../../../common/logging');
+const { s3 } = require('../../../common/aws');
 
 const logger = getLogger('aws-S3-service');
 const s3Client = s3.buildS3Client();
@@ -17,6 +17,7 @@ function getFile({ bucket, key }) {
     Bucket: bucket,
     Key: key
   };
+  // noinspection JSCheckFunctionSignatures
   return s3Client.getObject(params)
     .promise()
     .then(result => {
@@ -37,8 +38,15 @@ function getFile({ bucket, key }) {
         params,
         error
       });
-      const code = error.code === 'NoSuchKey' ? 'ResourceNotFound' : undefined;
-      throw new S3Error('Error retrieving file from S3', { bucket, key }, code);
+      const code = error.code === 'NoSuchKey' ? S3_ERROR_CODES.OBJECT_NOT_FOUND : undefined;
+      throw new S3Error('Error retrieving file from S3', {
+        code,
+        resource: {
+          bucket,
+          key
+        },
+        error
+      });
     });
 }
 

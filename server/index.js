@@ -4,20 +4,17 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 const path = require('path');
+
 const router = require('./router');
-const { normalizePort } = require('./utilities');
 const { getLogger, getLoggingMiddleware } = require('./common/logging');
+const { normalizePort } = require('./utilities');
 const db = require('./db');
 
-const {
-  server: {
-    defaultPort
-  }
-} = require('./config');
+const { server: serverConfig } = require('./config');
 
 const logger = getLogger('server');
 const loggingMiddleware = getLoggingMiddleware('jens-johnson.com');
-const PORT = normalizePort(process.env.PORT || defaultPort || 8080);
+const PORT = normalizePort(process.env.PORT || serverConfig.port.default);
 const server = express();
 
 db.connect()

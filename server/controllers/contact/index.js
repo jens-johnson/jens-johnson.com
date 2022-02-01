@@ -1,8 +1,8 @@
-const contactService = require('../../service/contact');
 const { handleError } = require('../common/error');
+const { getLogger } = require('../../common/logging');
+const contactService = require('../../service/contact');
 const parsers = require('./parsers');
 const validate = require('./validators');
-const { getLogger } = require('../../common/logging');
 
 const logger = getLogger('contact-api');
 
@@ -16,7 +16,7 @@ const logger = getLogger('contact-api');
 function createContactRequest(req, res) {
   return Promise.resolve(req)
     .then(parsers.createContactRequest)
-    .then(request => validate(request, '/contact/submit/request'))
+    .then(request => validate(request, '/contact/submit/#request'))
     .then(contactService.createContactRequest)
     .then(result => {
       logger.info({

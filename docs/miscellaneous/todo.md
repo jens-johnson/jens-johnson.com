@@ -10,12 +10,18 @@ where:
 
 ## Features
 
-Outstanding features to be implemented in the application
+**Outstanding:**
 
 | Feature             | Description                                 | Priority   |
 |---------------------|---------------------------------------------|------------|
 | **Blog** – Search   | Provide search functionality for blog posts | **Medium** |
 | **Blog** - Comments | Provide ability to comment on blog posts    | **Low**    |
+
+**Completed:**
+
+| Feature | Description | Priority |
+|---------|-------------|----------|
+|         |             |          |
 
 ### Blog
 
@@ -44,16 +50,36 @@ Outstanding features to be implemented in the application
 
 ## Tasks
 
-Development tasks to be completed
+**Outstanding:**
 
 | Task                                 | Description                                                    | Priority |
 |--------------------------------------|----------------------------------------------------------------|----------|
 | **Security** - Request Authorization | Request authorization for client/server interactions           | Medium   |
-| **Security** - Database Security     | Implement security measures for interactions with the database | Low      |
+| **Code Quality** - Linting           | Add linting to project                                         | Medium   |
 | **Testing** - Integration tests      | Integration tests for API calls                                | Low      |
 | **Testing** - Integration tests      | Unit tests for server modules                                  | Low      |
+| **Security** - Database Security     | Implement security measures for interactions with the database | Low      |
+
+**Completed:**
+
+| Task | Description | Priority |
+|------|-------------|----------|
+|      |             |          |
 
 ### General
+
+#### Code Quality
+
+##### Linting
+
+**Description**: Add linting to code
+
+**Priority**: Medium
+
+**Tasks**:
+- [ ] Create ES lint configuration
+- [ ] Install dependencies
+- [ ] Add linting scripts to package
 
 #### Security
 
@@ -101,17 +127,25 @@ Development tasks to be completed
 
 ## Fixes
 
-Issues needing remediation
+**Outstanding:**
+
+| Issue                            | Description                                         | Priority |
+|----------------------------------|-----------------------------------------------------|----------|
+| Redundant/vulnerable vendor CSS  | Vendor CSS containing error-prone/inaccurate syntax | Low      |
+
+**Completed:**
 
 | Issue                       | Description                                                           | Priority |
 |-----------------------------|-----------------------------------------------------------------------|----------|
 | Expired Google Maps API key | Google Maps API key expired for client, causing map component to fail | Low      |
 
 
-- **Issue**: Google Maps API Key expired on client
+
+- **Issue**: Redundant/vulnerable vendor CSS
   - **Priority**: Low
-  - **Description**: Google Maps API key in included script on public HTML page (`public.html`) is expired; causing map 
-    component to fail
+  - **Description**: Provided CSS used in website scaffolding is redundant/error-prone (i.e. not linted, mis-spelled,
+    etc.)
   - **Remediation Strategy**:
-    - [ ] Get new key from Google Cloud Console
-    - [ ] Add key and test
+    - [ ] Investigate CSS warnings
+    - [ ] Fix spelling
+    - [ ] Consolidate/fix SCSS files
