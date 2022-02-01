@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - Refactored error codes for `DatabaseError` on the server
 - Modified scripts in `package.json`
+- Cleaned up scss
 ### Added
 - More documentation
 - Using .nvmrc to control Node versioning
