@@ -1,5 +1,3 @@
-const pino = require('pino');
-
 const {
   logging: {
     destination
@@ -8,10 +6,8 @@ const {
 
 /**
  * Local logging transport; prettifies JSON logs and sends them to stdout/stderr
- *
- * @type {pino.ThreadStream}
  */
-const local = pino.transport({
+const local = {
   targets: [
     {
       level: 'info',
@@ -28,21 +24,20 @@ const local = pino.transport({
       }
     }
   ]
-});
+};
 
 /**
  * File logging transport; sends logs to logging file destinations
- *
- * @type {pino.ThreadStream}
  */
-const file = pino.transport({
+const file = {
   targets: Object.entries(destination.levels).map(([ level, output ]) => ({
     level,
+    target: 'pino/file',
     options: {
       destination: `${destination.directory}${output}`
     }
   }))
-});
+};
 
 module.exports = {
   local,
