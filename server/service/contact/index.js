@@ -1,6 +1,6 @@
 const { emailRecipient, contactMessage } = require('../../db/contact');
 const { getLogger } = require('../../common/logging');
-const { DatabaseError } = require('../../common/errors');
+const { DatabaseError, DATABASE_ERROR_CODES } = require('../../common/errors');
 
 const logger = getLogger('contact-service');
 
@@ -30,7 +30,11 @@ function persistEmailRecipient(request) {
         request,
         error
       });
-      throw new DatabaseError('Failed to persist email recipient', 'EmailRecipient');
+      throw new DatabaseError('Failed to persist email recipient', {
+        resource: 'EmailRecipient',
+        code: DATABASE_ERROR_CODES.PERSIST_ITEM,
+        error
+      });
     });
 }
 
@@ -59,7 +63,11 @@ function createContactMessage(request) {
         request,
         error
       });
-      throw new DatabaseError('Failed to create contact message', 'ContactMessage');
+      throw new DatabaseError('Failed to create contact message', {
+        resource: 'ContactMessage',
+        code: DATABASE_ERROR_CODES.CREATE_ITEM,
+        error
+      });
     });
 }
 

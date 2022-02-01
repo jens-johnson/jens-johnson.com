@@ -32,3 +32,33 @@ Contains the front-end React code and application (the application component its
 Contains the back-end Express server code
 
 Thanks for visiting!
+
+## Development
+
+To run this application locally, I have the following steps/configurations set up:
+
+1. Configure the necessary environment variables (either in a `.env` file in the project or in the shell environment)
+   ```shell
+   AWS_ACCESS_KEY_ID={aws-access-key-id}
+   AWS_SECRET_ACCESS_KEY={aws-secret-access-key}
+   MONGODB_URI={mongodb-uri}
+   PORT={designated-server-port}
+   ```
+2. Add an entry to `/etc/hosts` to point the local host to a test website domain:
+   ```shell
+   $ echo 127.0.0.1 jens-johnson.test.com | sudo tee -a /etc/hosts
+   ```
+3. Make sure the correct version of Node is configured:
+   ```shell
+   $ nvm use
+   ```
+4. Run a fresh development build:
+   ```shell
+   $ npm i
+   $ npm run build:dev
+   ```
+5. Run the `start` script, which launches the local server and watches for changes in client code to re-bundle static 
+   assets:
+   ```shell
+   $ npm run start:dev
+   ```
