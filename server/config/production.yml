@@ -1,10 +1,10 @@
 logging:
   destination:
-    directory: '/www/logs/'
+    directory: /www/logs/
     levels:
-      info: 'info.log'
-      error: 'error.log'
-      debug: 'debug.log'
+      info: info.log
+      error: error.log
+      debug: debug.log
 server:
   port:
     default: 8080
