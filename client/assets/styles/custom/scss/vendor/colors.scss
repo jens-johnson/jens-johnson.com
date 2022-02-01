@@ -1,21 +1,4 @@
-$main-color: #4CAF50 ;
-
-@mixin box-shadow($params) {
-  -webkit-box-shadow: $params;
-  -moz-box-shadow: $params;
-  box-shadow: $params;
-}
-$color-shadows: 0 2px 5px 0 rgba($main-color,.16), 0 2px 10px 0 rgba($main-color,.12);
-$color-shadows-contact: 0 0px 2px 0 rgba($main-color,.16), 0 0px 2px 0 rgba($main-color,.12);
-$color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba($main-color,.8);
-
-.new .navbar-toggler .icon, .new .navbar-toggler .icon::after, .new .navbar-toggler .icon::before {
-    background-color: $main-color;
-}
-
-
-
-
+@import "variable";
 
 .white-vertion {
     .page-item {
@@ -26,6 +9,7 @@ $color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba(
         }
     }
 }
+
 .dark-vertion {
     .page-item {
         &.active {
@@ -57,7 +41,7 @@ $color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba(
            &.mh-home-contact {
                li {
                     &:hover {
-                        .fa, .svg-inline--fa {
+                        .fa {
                             color: $main-color;
                         }
                     }
@@ -67,6 +51,7 @@ $color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba(
        }
     }
 }
+
 .mh-home {
     .mh-header-info {
         .mh-promo {
@@ -77,7 +62,7 @@ $color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba(
         ul {
             li {
                 &:hover {
-                    .fa, .svg-inline--fa {
+                    .fa {
                         color: $main-color;
                     }
                 }
@@ -85,6 +70,7 @@ $color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba(
         }
     }
 }
+
 .mh-about-tag {
     ul {
         li {
@@ -98,6 +84,7 @@ $color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba(
         }
     }
 }
+
 .mh-progress path:nth-child(2) {
   stroke: $main-color;
 }
@@ -130,36 +117,6 @@ $color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba(
     }
 }
 
-.mh-experince {
-    .mh-education-deatils {
-        .mh-education-item {
-            h4 {
-                a {
-                   color: $main-color;
-                }
-            }
-        }
-    }
-}
-
-.mh-work {
-    .mh-experience-deatils {
-        .mh-work-item {
-            &:hover {
-
-            }
-            &:last-child {
-            }
-            h4 {
-                a {
-                    color: $main-color;
-                }
-            }
-        }
-    }
-}
-
-
 .portfolio-nav {
     ul {
         li {
@@ -180,7 +137,7 @@ $color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba(
                 background-color: darken($main-color, 5%);
             }
         }
-        .fa, .svg-inline--fa {
+        .fa {
             color: lighten($main-color, 30%);
         }
         h5 {
@@ -189,15 +146,9 @@ $color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba(
     }
 }
 
-
 .mh-blog {
     .mh-blog-item {
         .blog-inner {
-            h2 {
-                a {
-                    color: #fff;
-                }
-            }
             a {
                 color: $main-color;
             }
@@ -231,14 +182,12 @@ $color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba(
 .mh-footer-address {
     .mh-address-footer-item {
         .each-icon {
-            .fa, .svg-inline--fa {
+            .fa {
                 border-color: $main-color;
             }            
         }
     }
 }
-
-
 
 .old {
     .navbar-collapse {
@@ -263,6 +212,7 @@ $color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba(
         background-color: $main-color;
     }
 }
+
 .portfolio-nav {
     ul {
         li {
@@ -287,7 +237,6 @@ $color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba(
     }
 }
 
-
 .mh-featured-project {
     .mh-featured-item {
         .mh-featured-project-content {
@@ -307,7 +256,6 @@ $color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba(
     }
 }
 
-
 .mh-service {
     .mh-service-item {
         a {
@@ -315,6 +263,7 @@ $color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba(
         }
     }
 }
+
 .mh-pagination {
     .page-link {
         &:hover {
@@ -340,15 +289,9 @@ $color-shadows-contact-2x: 0 0px 2px 0 rgba($main-color,.8), 0 0px 1px 1px rgba(
         color: $main-color;
     }
 }
+
 .comment-deatils {
     span {
         color: $main-color;
     }
-}
-
-.btn.btn-fill {
-    background-color: $main-color;
-}
-.mh-pricing .mh-pricing .fa, .mh-pricing .mh-pricing .svg-inline--fa {
-    color: $main-color;
 }

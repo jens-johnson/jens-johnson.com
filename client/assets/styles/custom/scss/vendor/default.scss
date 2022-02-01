@@ -1,34 +1,22 @@
 @import "variable";
 @import "functions";
 
-/**
- * -------------------
- *  Defult CSS
- * -------------------
- */
 html {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
 
-body{
-    font-family:            $font-1;
-    font-size:              14px;
-    font-style:             none;
-    line-height:            24px;
-    font-weight:            500;
-    overflow-x:             hidden !important;
-    text-align:             left;
-    position:               relative;
-    color:                 $paragraph-color;
-    opacity:                0.9;
-
-    // &.dark-vertion {
-    //     color: $white;
-    //     a, h2, h3, h4, h5. h6, p, address, span {
-    //         color: $white;
-    //     }
-    // }
+body {
+    font-family: $font-1;
+    font-size: 14px;
+    font-style: none;
+    line-height: 24px;
+    font-weight: 500;
+    overflow-x: hidden !important;
+    text-align: left;
+    position: relative;
+    color: $paragraph-color;
+    opacity: 0.9;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -40,16 +28,14 @@ p {
 }
 
 .nav li a {
-    text-decoration:    none !important;
-    display:            inline-block;
-    cursor:             pointer;
-    // font-family:        $font-2;
-    padding:            0px;
+    text-decoration: none !important;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0px;
     background-color: transparent;
     @include transition(color .3s ease);
 
     &:hover {
-        // color: $main-color-1;
         background-color: transparent;
     }
 
@@ -58,18 +44,17 @@ p {
         outline: 0 !important;
     }
 }
+
 a {
-    text-decoration:    none !important;
-    cursor:             pointer;
-    // font-family:        $font-2;
-    padding:            0px;
+    text-decoration: none !important;
+    cursor: pointer;
+    padding: 0px;
     background-color: transparent;
     @include transition(color .3s ease);
     color: $black;
     opacity: 0.9;
 
     &:hover {
-        // color: $main-color-1;
         background-color: transparent;
     }
 
@@ -85,39 +70,8 @@ a {
     text-align: center;
 }
 
-// .shadow-m {
-    // @include box-shadow( 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12), false);
-// }
-
-// .shadow {
-//     @include box-shadow(0px,0px,60px,-6px, rgba($white, 0.2), false);
-// }
-// .shadow-1 {
-//     @include box-shadow(0px,0px,10px,0px, rgba($white, 0.2), false);
-// }
-// .shadow-2 {
-//     @include box-shadow(0px,0px,1px,0px, rgba($white, 0.2), false);
-// }
-
-// .black-shadow {
-//     @include box-shadow(0px,0px,60px,-6px, rgba($black, 0.2), false);
-// }
-// .black-shadow-1 {
-//     @include box-shadow(0px,0px,10px,0px, rgba($black, 0.2), false);
-// }
-// .black-shadow-2 {
-//     @include box-shadow(0px,0px,1px,0px, rgba($black, 0.2), false);
-// }
-
-
-
-/**
- * ---------------------
- *  Defult Halping Class
- * ---------------------
- */
-.overflow{
-    overflow:           hidden;
+.overflow {
+    overflow: hidden;
 }
 
 .relative {
@@ -141,13 +95,6 @@ a {
     vertical-align: middle;
 }
 
-
-
-/**
- * --------------------------------------
- *  Video Section Background Defult Style
- * --------------------------------------
- */
 .section-video {
     position: absolute;
     top: 0;
@@ -192,15 +139,7 @@ a {
     }
 }
 
-
-
-/**
- * ------------------------------------
- *  Every Section Headline Defult Class
- * ------------------------------------
- */
 .section-heading {
-    // color: fade($light-color, 100%);
     display: block;
     margin: 0;
 }
@@ -214,7 +153,6 @@ a {
         line-height: 30px;
         font-weight: 300;
         text-transform: uppercase;
-        // color: fade($light-color, 100%);
         margin: 0 0 10px 0;
     }
 
@@ -240,17 +178,14 @@ a {
 
     .icon {
         font-size: 48px;
-        // color: $light-color;
         text-align: center !important;
     }
 
-    &::before,
-    &::after {
+    &::before, &::after {
         content: '';
         position: absolute;
         width: 57px;
         height: 2px;
-        // background-color: $main-color-1;
         top: 25px;
     }
 
@@ -262,8 +197,6 @@ a {
         right: 0;
     }
 }
-
-
 
 .v-middle {
     display: -webkit-flex;
@@ -277,29 +210,20 @@ a {
     flex-direction: row;
     -webkit-flex-direction: row;
 }
+
 .mini-separator {
     padding: 20px 0;
 }
 
-
-/**
- * ---------------------
- *   Defult Button Style
- * ---------------------
- */
 .btn {
    @include transition(color .3s ease);
     outline: 0;
     padding: 8px 30px;
     font-weight: bold;
     border-radius: 20px;
+
     &:last-child {
         margin-right: 0px !important;
-    }
-
-    &:hover,
-    &:focus {
-        // color: $light-color;
     }
 
     .icon {
@@ -329,57 +253,32 @@ a {
         }
     }
 
-    &.white-btn-border {
-        // font-size: 24px;
-        // font-weight: 300;
-        // border: 1px solid;
-        // padding: 18px 25px;
-
-        &:hover {
-            // border-color: darken($main-color-1, 5%);
-        }
-    }
-
     &.btn-border {
         background-color: transparent;
-        // border-color: fade($light-color, 100%);
-
-        &:hover {
-            // background-color: darken($main-color-1, 5%);
-        }
     }
+
     &.white-btn-border {
         background-color: transparent;
         border-color: $white;
-
-        &:hover {
-            // background-color: darken($main-color-1, 5%);
-        }
     }
 
     &.btn-round {
         padding: 15px;
-        // background-color: $main-color-1;
         border-radius: 50%;
         width: 65px;
         height: 65px;
-        // color: fade($light-color, 100%);
         font-size: 24px;
         text-align: center;
-        // .box-shadow(0 13px 42px 0 fade($shadow-color, 25%));
 
         .icon {
             top: 7px;
         }
     }
 
-    &.apple,
-    &.androad {
+    &.apple, &.androad {
         @include border-radius-mixin(3px);
         padding: 9px 28px;
         height: 82px;
-        // background: $background-1;
-        // border-color: $background-1;
 
         img {
             width: 35px;
@@ -401,8 +300,7 @@ a {
             float: right;
         }
 
-        .big,
-        .small {
+        .big, .small {
             text-align: left;
             margin-left: 7px;
             line-height: 30px;
@@ -416,51 +314,25 @@ a {
         .small {
             font-size: 16px;
         }
-
-        &:hover {
-            // background-color: $main-color-1;
-            // border-color:  $main-color-1;
-        }
     }
-
 }
 
-
-
-
-.btn.active.focus,
-.btn.active:focus,
-.btn.focus,
-.btn:active.focus,
-.btn:active:focus,
-.btn:focus {
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
     outline: thin dotted;
     outline: 0px auto -webkit-focus-ring-color !important;
     outline-offset: -2px;
-    // color: $light-color;
 }
 
 .btn-text-link {
     padding: 50px 0 0 0;
     text-align: center;
-    // color: fade($dark-color, 85%);
 
     a {
-        // color: $main-color-1;
         margin-left: 10px;
     }
 }
 
-
-
-
-/**
- * -----------------
- * Social Icon Style
- * -----------------
- */
 .social-icon {
-    // margin-top: 15px;
     display: inline-block;
 
     li {
@@ -470,20 +342,11 @@ a {
         margin-right: 8px;
 
         a {
-            // font-size: 25px;
             text-align: center;
             width: 45px;
             height: 45px;
             padding: 10px;
             border-radius: 50%;
-            // background-color: $main-color-1;
-            // color: fade($light-color, 100%);
-
-            &:hover,
-            &:focus {
-                // background-color: $main-color-3;
-                // color: $light-color;
-            }
         }
 
         &:last-child {
@@ -494,23 +357,7 @@ a {
     }
 }
 
-
-
-/**
- * -----------------------------------
- * Subscription and contact  "MESSAGE"
- * -----------------------------------
- */
-.message {
-    .inner {
-        // background-color: $background-2;
-    }
-}
-.subscription-success,
-.subscription-failed,
-.email-success,
-.email-failed,
-.email-loading {
+.subscription-success, .subscription-failed, .email-success, .email-failed, .email-loading {
     font-size: 15px;
     display: none;
     text-align: center !important;
@@ -527,8 +374,7 @@ a {
     }
 }
 
-.subscription-failed,
-.email-failed{
+.subscription-failed, .email-failed{
     color: #FF5252 !important;
 
     .icon {
@@ -538,30 +384,17 @@ a {
     }
 }
 
-.subscription-success,
-.email-success {
+.subscription-success, .email-success {
     color: #56CC35;
 }
 
-.subscription-failed,
-.email-failed,
-.subscription-success,
-.email-success {
+.subscription-failed, .email-failed, .subscription-success, .email-success {
     .icon {
         font-size: 20px;
         position: relative;
         top: 5px;
     }
 }
-
-
-
-
-/**
- * ------------------
- * list
- * ------------------
- */
 
 ul {
     margin: 0;
@@ -571,16 +404,9 @@ ul {
     }
 }
 
-
-/**
- * =================
- * CONTAINER HALF CONTENT
- * =================
- */
 .content-half {
     position: relative;
 }
-
 
 .container-half-left {
     left: 0;
@@ -605,12 +431,6 @@ ul {
     -webkit-flex-direction: row;
 }
 
-
-/**
- * ---------------------------------
- *  Section Background Size Property
- * ---------------------------------
- */
 .bg-cover {
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -629,6 +449,7 @@ ul {
     padding: 60px 0;
     padding-top: 100px;
 }
+
 .home-section-separator {
     padding-top: 100px;
     padding-bottom: 200px;
@@ -639,7 +460,6 @@ ul {
 }
 
 .form-control {
-    // @include box-shadow(0px, 0px, 1px, 0px, rgba($white, 0.2), false);
     @include box-shadow($color-shadows-contact);
     background-color:  transparent;
     border-color: transparent;
@@ -647,7 +467,6 @@ ul {
     height: 50px;
     line-height: 50px;
     &:focus {
-        // @include box-shadow(0px, 0px, 2px, 0px, rgba($white, 0.2), false);
         @include box-shadow($color-shadows-contact);
         background-color: transparent;
     }
@@ -680,13 +499,14 @@ ul {
 .featured-img-one {
     background-image: url("~/assets/images/core/placeholder/home-bg-img.jpg");
 }
+
 .featured-img-two {
     background-image: url("~/assets/images/core/placeholder/extra-feature-bg.jpg");
 }
+
 .map-image {
     background-image: url("~/assets/images/core/placeholder/map-color-overlay.png");
 }
-
 
 .mt-30 {
     margin-top: 30px;
@@ -694,22 +514,28 @@ ul {
 
 button {
     outline: 0;
+
     &:hover {
         outline: 0;
     }
+
     &:focus {
         outline: 0;
     }
 }
+
 .btn {
     outline: 0;
+
     &:hover {
         outline: 0;
     }
+
     &:focus {
         outline: 0;
     }
 }
+
 .round-image {
     border-radius: 50%;
 }
@@ -719,12 +545,13 @@ button {
     @include box-shadow($color-shadows-contact-2x);
     background-color: transparent !important;
     color: $light-color !important;
+
     &:focus {
-        // @include box-shadow(0px, 0px, 2px, 0px, rgba($main-color, 1), false);
        @include box-shadow($color-shadows-contact-2x);
         border-color: transparent;
     }
 }
+
 .contact-message {
    @include box-shadow($color-shadows-contact-2x);
     background-color:  transparent;
@@ -733,6 +560,7 @@ button {
     width: 100%;
     padding: 20px;
     outline: 0;
+
     &:focus {
        @include box-shadow($color-shadows-contact-2x);
         border-color: transparent;

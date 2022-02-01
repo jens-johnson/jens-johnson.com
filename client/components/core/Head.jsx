@@ -17,10 +17,10 @@ import '~/assets/styles/plugins/owl/owl.carousel.min.css';
 import '~/assets/styles/plugins/owl/owl.theme.default.css';
 import '~/assets/styles/plugins/fancybox/jquery.fancybox-1.3.4.css';
 
-import '~/assets/styles/custom/css/maha/styles.css';
-import '~/assets/styles/custom/css/maha/responsive.css';
-import '~/assets/styles/custom/css/maha/green.css';
-import '~/assets/styles/custom/css/custom.css';
+import '~/assets/styles/custom/css/vendor/styles.css';
+import '~/assets/styles/custom/css/vendor/responsive.css';
+import '~/assets/styles/custom/css/vendor/green.css';
+import '~/assets/styles/custom/css/extensions.css';
 
 /**
  * Header component that creates a page header using react-helmet, injecting script and css dependencies
