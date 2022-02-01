@@ -3,8 +3,8 @@ const jsonschema = require('jsonschema');
 const { ValidationError } = require('../../common/errors');
 
 const SCHEMAS = {
-  '/contact/submit#request': {
-    id: '/contact/submit#request',
+  '/contact/submit/#request': {
+    id: '/contact/submit/#request',
     type: 'object',
     properties: {
       first: {

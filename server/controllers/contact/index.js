@@ -16,7 +16,7 @@ const logger = getLogger('contact-api');
 function createContactRequest(req, res) {
   return Promise.resolve(req)
     .then(parsers.createContactRequest)
-    .then(request => validate(request, '/contact/submit/request'))
+    .then(request => validate(request, '/contact/submit/#request'))
     .then(contactService.createContactRequest)
     .then(result => {
       logger.info({
