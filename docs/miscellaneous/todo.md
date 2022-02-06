@@ -129,9 +129,10 @@ where:
 
 **Outstanding:**
 
-| Issue                            | Description                                         | Priority |
-|----------------------------------|-----------------------------------------------------|----------|
-| Redundant/vulnerable vendor CSS  | Vendor CSS containing error-prone/inaccurate syntax | Low      |
+| Issue                           | Description                                         | Priority |
+|---------------------------------|-----------------------------------------------------|----------|
+| Redundant/vulnerable vendor CSS | Vendor CSS containing error-prone/inaccurate syntax | Low      |
+| NPM package vulnerabilities     | NPM package contains several vulnerabilities        | High     |
 
 **Completed:**
 
@@ -149,3 +150,8 @@ where:
     - [ ] Investigate CSS warnings
     - [ ] Fix spelling
     - [ ] Consolidate/fix SCSS files
+- **Issue**: NPM package vulnerabilities
+  - **Priority**: High
+  - **Description**: NPM package contains several vulnerabilities; `npm audit fix --force` not working and hangs
+  - **Remediation Strategy**:
+    - [ ] Investigate further; identify why audit hanging
