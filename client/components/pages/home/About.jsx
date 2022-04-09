@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faLaptopCode, faDatabase, faUser, faLightbulb, faSitemap, faPeopleArrows } from '@fortawesome/free-solid-svg-icons';
 
 import aboutPortfolioShot from '~/assets/images/pages/home/about-portfolio-shot.jpg';
-import resume from '~/assets/files/Jens-Johnson_Resume.pdf';
+import resume from '~/assets/files/jens_johnson_resume_2022.pdf';
 
 /**
  * Component representing the "About" section on the home page
