@@ -1,11 +1,16 @@
 # [jens-johnson.com](https://www.jens-johnson.com)
 
-**v0.6.0 💻** | **[🔗Documentation](docs)** | **[📜Changelog](docs/miscellaneous/changelog.md)** | **[🌎Site](https://www.jens-johnson.com)**
+[![v0.6.0](https://img.shields.io/badge/Version-0.6.0-blue)](https://img.shields.io/badge/Version-0.6.0-blue)
+
+[![GitHub followers](https://img.shields.io:/github/followers/jens-johnson?style=social)](https://img.shields.io:/github/followers/jens-johnson?style=social)
+[![Twitter followers](https://img.shields.io:/twitter/follow/jensjohnson9?label=follow&style=social)](https://img.shields.io:/twitter/follow/jensjohnson9?label=follow&style=social)
+
+[**🔗 DOCS 🔗**](docs) | [**📜 CHANGELOG 📜**](docs/miscellaneous/changelog.md) | [**🌎 SITE 🌎**](https://www.jens-johnson.com)
 
 ---
-**CURRENT STATUS [2022-01-28]**
+**CURRENT STATUS [2022-04-09]**
 
-The website is currently still in pre-release (0.5.0) as I work to get some last functional pieces going. If all
+The website is currently still in a beta pre-release (0.6.0) as I work to get some last functional pieces going. If all
 goes well (🤞🏻), I hope to release v1 very soon. Stay tuned...
 
 ---

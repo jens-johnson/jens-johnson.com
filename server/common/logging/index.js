@@ -3,7 +3,7 @@ const expressPino = require('express-pino-logger');
 
 const transports = require('./transports');
 
-const transport = { development: transports.local, production: transports.file }[process.env.environment || 'development'];
+const transport = { development: transports.local, production: transports.file }[process.env.ENVIRONMENT || 'development'];
 
 /**
  * Returns a pino logger with the given namespace

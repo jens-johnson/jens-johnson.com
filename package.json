@@ -8,7 +8,6 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "bin/server/start.sh",
     "start:dev": "npm run scss:watch & webpack -w & npm start && fg",
     "build": "npm run scss:compile && webpack --mode production",
     "build:dev": "npm run scss:compile && webpack --mode development",
@@ -29,7 +28,7 @@
     "portfolio"
   ],
   "author": "Jens Johnson",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jens-johnson/jens-johnson.com/issues"
   },

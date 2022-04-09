@@ -12,51 +12,85 @@ I'm using [AWS Lightsail](https://aws.amazon.com/lightsail/) to host the site. L
 `MEAN` stack running on a Bitnami Linux instance. This pre-configuration allowed me to quickly deploy the 
 application while focusing on the app itself.
 
+### Configuration
+
+The instance provided through Lightsail comes with a pre-configured `bitnami` user. The core application code lives 
+under this user on the instance, i.e. in `/home/bitnami/applications/jens-johnson.com`.
+
 ### Apache Server
 
-The instance image comes with an Apache server running on the  default HTTP 80 port. This means that accessing the 
-instance's IP from a browser will return the default Apache page  at `/opt/bitnami/apache2/htdocs/index.html` on the 
+#### Configuration
+
+The instance image comes with an Apache server running on the default HTTP 80 port and HTTPS 443 port. This means that 
+accessing the instance's IP from a browser will return the default Apache page  at `/opt/bitnami/apache2/htdocs/index.html` on the 
 image, i.e. something like:
-![](../../_images/default_bitnami_page.png)
+![](../../../_images/default_bitnami_page.png)
 
-In order to open up port 80 for the application server, so that accessing the instance's IP (or [http://www.jens-johnson.com](http://www.jens-johnson.com))
-from a browser will return the content served by the application, the Apache server either needs to be disabled, or
-moved to a separate port; opted for the latter option.
+In order to serve the web application from the Apache server, I had to add virtual hosts that listen on these ports 
+and provide a pass-through to the application content being served on its own HTTP server (i.e. on port 3000):
 
-To do this, I modified the Apache configuration files as such:
-1. First, I changed the following file:
-    ```shell
-    $ vi /opt/bitnami/apache2/conf/httpd.conf
-    ```
-   Where there is a default `Listen` command:
-   ```shell
-   Listen 8080 # Changed to 8080 instead of 80
-   ```
-2. I then changed the following file:
-   ```shell
-   $ vi /opt/bitnami/apache2/conf/bitnami/bitnami.conf
-   ```
+`/opt/bitnami/apache2/conf/vhosts/jens-johnson-http-vhost.conf`:
+```
+<VirtualHost _default_:80>
+  ServerAlias *
+  DocumentRoot "/home/bitnami/applications/jens-johnson.com/"
+  <Directory "/home/bitnami/applications/jens-johnson.com/">
+    Require all granted
+  </Directory>
+  ProxyPass / http://localhost:3000/
+  ProxyPassReverse / http://localhost:3000/
+</VirtualHost>
+```
 
-   To have default port of 8080 on the virtual hosts instead of 80:
-   ```shell
-   <VirtualHost _default_:8080> # Change this line to port 80
-    DocumentRoot "/opt/bitnami/apache/htdocs"
-    <Directory "/opt/bitnami/apache/htdocs">
-      Options Indexes FollowSymLinks
-      AllowOverride All
-      Require all granted
-    </Directory>
-    
-    # Error Documents
-    ErrorDocument 503 /503.html
-   </VirtualHost>
-   ```
+`/opt/bitnami/apache2/conf/vhosts/jens-johnson-https-vhost.conf`:
+```
+<VirtualHost _default_:443>
+  ServerAlias *
+  SSLEngine on
+  SSLCertificateFile "/opt/bitnami/apache/conf/bitnami/certs/server.crt"
+  SSLCertificateKeyFile "/opt/bitnami/apache/conf/bitnami/certs/server.key"
+  DocumentRoot "/home/bitnami/applications/jens-johnson.com/"
+  <Directory "/honme/bitnami/applications/jens-johnson.com/">
+    Require all granted
+  </Directory>
+  ProxyPass / http://localhost:3000/
+  ProxyPassReverse / http://localhost:3000/
+</VirtualHost>
+```
 
 I then restarted the `apache` service to launch the changes (because these are configuration files, the changes are
 also permanent at startup):
+
 ```shell
 $ sudo /opt/bitnami/ctlscript.sh restart apache
 ```
+
+#### HTTPS Configuration
+
+The Apache server can be configured to support HTTPS with LetsEncrpyt. I did this using Bitnami's configuration wizard:
+
+```shell
+$ sudo /opt/bitnami/bncert-tool
+```
+
+#### Deployment
+
+With the application created and bundled in `/home/bitnami/applications/jens-johnson.com`, it can be run using a 
+runner script that I've created in `/home/bitnami/config/bin/jens-johnson.com/start.sh`.
+
+Running
+```shell
+$ /home/bitnami/config/bin/jens-johnson.com/start.sh
+```
+
+Will invoke this script, which launches the application using the `forever` module, spawning a node process to keep 
+it running indefinitely. Under the hood, this looks something like
+
+```shell
+forever ./launch-config.json
+```
+
+Which launches the application using some pre-configured `forever` options that I have set.
 
 ## Domain Service
 
