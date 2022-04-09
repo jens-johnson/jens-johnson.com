@@ -34,7 +34,7 @@ const file = {
     level,
     target: 'pino/file',
     options: {
-      destination: `${destination.directory}${output}`
+      destination: `${process.env.LOGGING_DESTINATION || destination.directory}${output}`
     }
   }))
 };
