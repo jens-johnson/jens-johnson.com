@@ -1,6 +1,6 @@
 logging:
   destination:
-    directory: /home/bitnami/applications/logs/
+    directory: /home/bitnami/applications/logs/jens-johnson.com/application/
     levels:
       info: info.log
       error: error.log
