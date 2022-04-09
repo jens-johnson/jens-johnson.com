@@ -17,3 +17,6 @@ mongoose:
 blog:
   maxTagsShown: 20
   maxFeaturedPostsShown: 3
+server:
+  port:
+    default: 3000

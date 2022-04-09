@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const http = require('http');
-const server = require('../../server');
+const server = require('../server');
 
 const httpServer = http.createServer(server);
 const port = server.get('port');

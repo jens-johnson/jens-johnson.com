@@ -1,10 +1,7 @@
 logging:
   destination:
-    directory: /Users/JJo175/Development/Personal/jens-johnson.com/logs/
+    directory: /home/bitnami/applications/logs/jens-johnson.com/application/
     levels:
       info: info.log
       error: error.log
       debug: debug.log
-server:
-  port:
-    default: 8080

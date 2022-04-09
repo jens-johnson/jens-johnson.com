@@ -70,7 +70,7 @@ class Footer extends Component {
                 <div className="row">
                   <div className="col-sm-4">
                     <div className="text-left text-xs-center">
-                      <p>All rights reserved Jens Johnson @ 2021</p>
+                      <p>All rights reserved Jens Johnson @ 2022</p>
                     </div>
                   </div>
                   <div className="col-sm-4">

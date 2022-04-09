@@ -8,9 +8,9 @@
 [**🔗 DOCS 🔗**](docs) | [**📜 CHANGELOG 📜**](docs/miscellaneous/changelog.md) | [**🌎 SITE 🌎**](https://www.jens-johnson.com)
 
 ---
-**CURRENT STATUS [2022-01-28]**
+**CURRENT STATUS [2022-04-09]**
 
-The website is currently still in pre-release (0.6.0) as I work to get some last functional pieces going. If all
+The website is currently still in a beta pre-release (0.6.0) as I work to get some last functional pieces going. If all
 goes well (🤞🏻), I hope to release v1 very soon. Stay tuned...
 
 ---

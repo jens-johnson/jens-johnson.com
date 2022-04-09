@@ -29,8 +29,8 @@ class Service extends Component {
                   <br /><br/>
 
                   I love to cultivate this passion within my role at Nike, as well as through side projects that allow me to explore areas of software
-                  engineering that I'm interested in. Whether its building a Strava API client to track my running data, creating a React Native application for
-                  my iPhone, or just poking around with a new language, engineering allows me to apply creative problem solving to unique problems.
+                  engineering that I'm interested in. Whether it's building a Strava API client to track my running data, creating a React Native application for
+                  my iPhone, or just poking around with a new language, engineering allows me to apply creative problem solving to explore unique technologies and solutions.
                 </p>
               </div>
             </div>

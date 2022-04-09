@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload, faLaptopCode, faDatabase, faUser, faProjectDiagram, faLightbulb } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faLaptopCode, faDatabase, faUser, faLightbulb, faSitemap, faPeopleArrows } from '@fortawesome/free-solid-svg-icons';
 
 import aboutPortfolioShot from '~/assets/images/pages/home/about-portfolio-shot.jpg';
 import resume from '~/assets/files/Jens-Johnson_Resume.pdf';
@@ -28,9 +28,8 @@ class About extends Component {
                 <p className="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Hi, I'm Jens.</p>
                 <p className="wow fadeInUp about-description" data-wow-duration="0.8s" data-wow-delay="0.2s">
                   I'm currently living in my hometown of Denver, Colorado, where I work remotely as a software engineer with Nike.
-                  I graduated from the University of Oregon in 2019 with dual majors in computer science and business, and I've been incredibly
-                  lucky to pursue my passions at the intersection of technology, software development, innovation, collaborative design, and so much more,
-                  both within and outside my career.
+                  I graduated from the University of Oregon in 2019 with dual majors in Computer Information Science and Business Administration, and I've been incredibly
+                  lucky to pursue my passions at the intersection of technology, software development, innovation, collaborative design, and so much more; both within and outside my career.
                   <br /><br/>
 
                   At Nike, I work with the Sport Science Platform, enabling world-class data collection and research services for the <a href="https://news.nike.com/news/inside-the-nike-sports-research-lab-lebron-james-innovation-center">Nike Sport Research Lab (NSRL)</a>,
@@ -39,7 +38,7 @@ class About extends Component {
 
                   Outside of Nike, software development, and project execution, I love to explore my incredible back yard here in Denver and all that
                   Colorado has to offer. When I'm not in front of a laptop, I'm usually found trail running on one of the many amazing paths right outside
-                  of my front door in Denver, skiing in the mountains, camping, rock climbing, or somewhere outdoors. The juxtaposition of creating software
+                  of my front door in Denver, skiing in the mountains, camping, rock climbing, or somewhere outside. The juxtaposition of creating software
                   and unplugging from all technology to get outside throughout my week is a perfect balance for me.
                   <br /><br/>
 
@@ -50,8 +49,9 @@ class About extends Component {
                   <ul>
                     <li><span><FontAwesomeIcon icon={faLaptopCode} /> Software Development</span></li>
                     <li><span><FontAwesomeIcon icon={faDatabase} /> Data and Analytics</span></li>
-                    <li><span><FontAwesomeIcon icon={faUser} /> User Design</span></li>
-                    <li><span><FontAwesomeIcon icon={faProjectDiagram} /> Project Management</span></li>
+                    <li><span><FontAwesomeIcon icon={faSitemap} /> Service Oriented Architecture</span></li>
+                    <li><span><FontAwesomeIcon icon={faUser} /> User Experience Design</span></li>
+                    <li><span><FontAwesomeIcon icon={faPeopleArrows} /> Project Management</span></li>
                     <li><span><FontAwesomeIcon icon={faLightbulb} /> Innovation</span></li>
                   </ul>
                 </div>

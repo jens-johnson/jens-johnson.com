@@ -1,10 +1,7 @@
 logging:
   destination:
-    directory: /www/logs/
+    directory: /home/bitnami/applications/logs/
     levels:
       info: info.log
       error: error.log
       debug: debug.log
-server:
-  port:
-    default: 8080

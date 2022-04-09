@@ -156,9 +156,7 @@ was able to create:
 2. An open HTTP server on said instance to serve up my application
 
 LightSail provides you with a default key pair (`default.pem`) when you create an instance that you can use to SSH into 
-the 
-instance 
-for development purposes, i.e.:
+the instance for development purposes, i.e.:
 ```shell
 $ ssh bitnami@{instance-ip-address} -i default.pem
 ```
